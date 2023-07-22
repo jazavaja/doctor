@@ -9,7 +9,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body>
+<body style="background-color: #dafffa">
 <!-- Your page content -->
 @yield('content')
 <!-- Include the JavaScript files at the end of the body section -->

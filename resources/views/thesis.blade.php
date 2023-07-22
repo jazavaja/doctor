@@ -24,8 +24,8 @@
                 <div class="container">
                     <!-- Search Bar -->
                     <div class="mb-3 input-group">
-                        <input type="text" class="form-control" id="searchInput" placeholder="Search...">
-                        <button class="btn btn-primary" id="searchButton">Search</button>
+                        <input type="text" class="form-control text-center" id="searchInput" placeholder="نام عنوان مقاله یا استاد راهنمای مقاله را جستجو کنید">
+                        <button class="btn btn-primary" id="searchButton">جستجو</button>
                     </div>
 
                     <!-- Table -->
