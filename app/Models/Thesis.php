@@ -3,6 +3,7 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Thesis extends Model
 {
@@ -10,6 +11,7 @@ class Thesis extends Model
         'creatorName',
         'titleThesis',
         'guideMasterUserId',
+        'consultantMasterUserId',
         'category_id',
         'dateOfRegister',
         'DefenseDate',
@@ -19,7 +21,13 @@ class Thesis extends Model
     {
         return $this->belongsTo(Category::class);
     }
-    public function guideMasterUser()
+
+    public function guideMasterUser(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function consultantMasterUser(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
