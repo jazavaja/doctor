@@ -26,11 +26,11 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>داشبورد مدیریت</h1>
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <p>به پنل مدیریت دانشگاه دندان پزشکی خوش امدید از منوی سمت راست کمک بگیرید</p>
 @stop
 
 @section('css')
