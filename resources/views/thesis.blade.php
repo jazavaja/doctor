@@ -32,18 +32,18 @@
                     <table class="table table-bordered">
                         <thead>
                         <tr>
-                            <th>ردیف</th>
-                            <th>نام پدید اورنده</th>
-                            <th>عنوان پایان نامه</th>
-                            <th>جزییات</th>
+                            <th class="text-center">ردیف</th>
+                            <th class="text-center">نام پدید اورنده</th>
+                            <th class="text-center">عنوان پایان نامه</th>
+                            <th class="text-center">جزییات</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>علی محسنی</td>
-                            <td>بررسی هوش مصنوعی در علم دندان پزشکی</td>
-                            <td>
+                            <td class="text-center">1</td>
+                            <td class="text-center">علی محسنی</td>
+                            <td class="text-center">بررسی هوش مصنوعی در علم دندان پزشکی</td>
+                            <td class="text-center">
                                 <details>
                                     <summary>مشاهده جزییات</summary>
                                     <!-- Additional details content -->
