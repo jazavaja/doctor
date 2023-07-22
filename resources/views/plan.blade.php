@@ -1,20 +1,20 @@
 @extends('layout')
 
 @section('title')
-    لیست مقالات
+    طرح ها
 @endsection
 @section('content')
     <div class="container">
         <!-- Tabs -->
-        <ul class="nav nav-tabs mb-3" id="myTabs" role="tablist">
+        <ul class="nav nav-tabs mb-3 justify-content-center" id="myTabs" role="tablist">
             <li class="nav-item" role="presentation">
-                <a class="nav-link active" id="tab1-tab" data-toggle="tab" href="/thesis" role="tab" aria-controls="tab1" aria-selected="true">پایان نامه ها</a>
+                <a class="nav-link" id="tab1-tab" data-toggle="tab" href="/thesis" role="tab" aria-controls="tab1" aria-selected="false">پایان نامه ها</a>
             </li>
             <li class="nav-item" role="presentation">
-                <a class="nav-link" id="tab2-tab" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false">پروپزال ها</a>
+                <a class="nav-link" id="tab2-tab" data-toggle="tab" href="/proposal" role="tab" aria-controls="tab2" aria-selected="false">پروپزال ها</a>
             </li>
             <li class="nav-item" role="presentation">
-                <a class="nav-link" id="tab3-tab" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false">طرح ها</a>
+                <a class="nav-link active" id="tab3-tab" data-toggle="tab" href="/plan" role="tab" aria-controls="tab3" aria-selected="true">طرح ها</a>
             </li>
         </ul>
 
@@ -47,6 +47,7 @@
                                 <details>
                                     <summary>مشاهده جزییات</summary>
                                     <!-- Additional details content -->
+                                    <p>دسته بندی : </p>
                                     <p>استاد راهنما : </p>
                                     <p>استاد مشاور : </p>
                                     <p>تاریخ دفاع : </p>
