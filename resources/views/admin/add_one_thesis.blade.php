@@ -3,7 +3,7 @@
 @section('title', 'پایان نامه')
 
 @section('content_header')
-    <h1>مدیریت پایان نامه ها</h1>
+    <h1>اضافه کردن پایان نامه</h1>
 @stop
 
 @section('content')

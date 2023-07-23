@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function createThesisOne(){
-        return view('admin.manage_thesis');
+        return view('admin.add_one_thesis');
     }
 }
