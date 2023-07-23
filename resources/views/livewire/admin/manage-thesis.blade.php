@@ -62,12 +62,6 @@
         <label for="category_id">Date dateOfRegister</label>
         <input type="text" wire:model.defer="dateOfRegister" class="form-control text-center example2">
     </div>
-
-    {{--    <div class="form-group">--}}
-    {{--        <label for="type">Type</label>--}}
-    {{--        <input type="text" wire:model.defer="type" class="form-control" id="type" name="type" placeholder="Enter type">--}}
-    {{--    </div>--}}
-
     <button wire:click="submit" wire:loading.class="btn-loading" class="btn btn-danger">
         <span wire:loading wire:target="submit">لطفاً صبر کنید...</span>
         <span wire:loading.remove wire:target="submit">ثبت</span>
