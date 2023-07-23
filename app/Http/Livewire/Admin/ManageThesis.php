@@ -18,11 +18,21 @@ class ManageThesis extends Component
     public $category_id;
     public $dateOfRegister;
     public $defenseDate;
-
     public $resultDateOfRegister;
     public $resultDefenseDate;
-
     public $type;
+
+    public $success=null;
+
+    protected $rules = [
+        'creatorName' => 'required|string',
+        'titleThesis' => 'required|string',
+        'guideMasterUserId' => 'required|integer',
+        'consultantMasterUserId' => 'nullable|integer',
+        'category_id' => 'required|integer',
+        'dateOfRegister' => 'nullable|string',
+        'defenseDate' => 'nullable|string',
+    ];
 
     public function setInitDate(){
         if ($this->defenseDate == null){
@@ -51,16 +61,34 @@ class ManageThesis extends Component
         return view('livewire.admin.manage-thesis');
     }
 
-    public function submit(){
+    public function submit()
+    {
         $this->setInitDate();
-        Thesis::create([
-           'creatorName'=>$this->creatorName,
-            'titleThesis'=>$this->titleThesis,
-            'guideMasterUserId'=>$this->guideMasterUserId,
-            'category_id'=>$this->category_id,
-            'dateOfRegister'=>$this->resultDateOfRegister,
-            'DefenseDate'=>$this->resultDefenseDate
-        ]);
 
+        $this->validate(); // Validate the form fields based on the rules
+
+        try {
+            Thesis::create([
+                'creatorName' => $this->creatorName,
+                'titleThesis' => $this->titleThesis,
+                'guideMasterUserId' => $this->guideMasterUserId,
+                'category_id' => $this->category_id,
+                'dateOfRegister' => $this->resultDateOfRegister,
+                'DefenseDate' => $this->resultDefenseDate,
+            ]);
+
+            // Clear form fields after successful submission if needed
+            $this->reset();
+
+            $this->success=1;
+            // You can also add a success message if desired
+            // session()->flash('success', 'Thesis submitted successfully!');
+        } catch (\Exception $exception) {
+            // Add the error to the Livewire error bag
+            $this->addError('submit', 'An error occurred while submitting the thesis.');
+
+            // Log the error for debugging purposes (optional)
+            Log::error($exception->getMessage());
+        }
     }
 }
