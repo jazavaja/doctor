@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Category;
 use App\Models\Thesis;
+use App\Models\User;
 use App\Providers\GeneralMethod;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
@@ -20,6 +22,8 @@ class CreateThesisOne extends Component
     public $resultDateOfRegister;
     public $resultDefenseDate;
     public $type;
+    protected $listCategory;
+    protected $listUsers;
 
     public $success=null;
 
@@ -85,8 +89,21 @@ class CreateThesisOne extends Component
             Log::error($exception->getMessage());
         }
     }
+
+
+    public function getCategory(){
+        return $this->listCategory=Category::get();
+    }
+    public function getUsers(){
+        return $this->listUsers=User::get();
+    }
     public function render()
     {
-        return view('livewire.admin.create-thesis-one');
+        $this->getCategory();
+        $this->getUsers();
+        return view('livewire.admin.create-thesis-one')
+            ->with('listCategory',$this->listCategory)
+            ->with('listUsers',$this->listUsers)
+            ;
     }
 }
