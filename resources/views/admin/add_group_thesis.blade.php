@@ -3,11 +3,11 @@
 @section('title', 'پایان نامه')
 
 @section('content_header')
-    <h1>اضافه کردن پایان نامه</h1>
+    <h1>اضافه کردن پایان نامه گروهی</h1>
 @stop
 
 @section('content')
-    @livewire('admin.create-thesis-one')
+    @livewire('admin.create-thesis-group')
 @stop
 
 @section('css')
