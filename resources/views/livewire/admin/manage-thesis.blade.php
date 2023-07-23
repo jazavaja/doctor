@@ -21,7 +21,8 @@
         <div class="col-6">
             <div class="form-group">
                 <label for="consultantMasterUserId">Consultant Master User ID</label>
-                <input type="number" wire:model.defer="consultantMasterUserId" class="form-control" id="consultantMasterUserId"
+                <input type="number" wire:model.defer="consultantMasterUserId" class="form-control"
+                       id="consultantMasterUserId"
                        name="consultantMasterUserId" placeholder="Enter consultant master user ID">
             </div>
         </div>
@@ -33,23 +34,40 @@
                placeholder="Enter category ID">
     </div>
     <div class="form-group">
-
-        <input type="text" wire:model="date" class="example1">
-
+        <label for="category_id">Date defense</label>
+        <input type="text" wire:model.defer="defenseDate" class="form-control text-center example1">
+        @push('scripts')
             <script>
-                $(document).ready(function() {
+                $(document).ready(function () {
                     $(".example1").pDatepicker({
                         format: 'YYYY/MM/DD',
-                        locale: 'fa'
+                        locale: 'fa',
+                        onSelect: function () {
+                            var date = $('.example1').val() // Use correct class name here
+                            @this.set('defenseDate', date, true); // Use 'defenseDate' instead of 'date_accounting'
+                        },
                     });
                 });
             </script>
-        <div>
-            <label for="dateOfRegister">Date Of Register</label>
-            <input type="text" wire:model.defer="dateOfRegister" class="form-control" id="dateOfRegister"
-                   name="dateOfRegister" placeholder="Enter date of register">
-        </div>
-
+        @endpush
+    </div>
+    <div class="form-group">
+        <label for="category_id">Date dateOfRegister</label>
+        <input type="text" wire:model.defer="dateOfRegister" class="form-control text-center example2">
+        @push('scripts')
+            <script>
+                $(document).ready(function () {
+                    $(".example2").pDatepicker({
+                        format: 'YYYY/MM/DD',
+                        locale: 'fa',
+                        onSelect: function () {
+                            var date = $('.example2').val() // Use correct class name here
+                            @this.set('dateOfRegister', date, true); // Use 'defenseDate' instead of 'date_accounting'
+                        },
+                    });
+                });
+            </script>
+        @endpush
     </div>
 
     <div class="form-group">
@@ -57,6 +75,9 @@
         <input type="text" wire:model.defer="type" class="form-control" id="type" name="type" placeholder="Enter type">
     </div>
 
-    <button wire:click="submit" class="btn btn-primary">Submit</button>
+    <button wire:click="submit" wire:loading.class="btn-loading" class="btn btn-danger">
+        <span wire:loading wire:target="submit">لطفاً صبر کنید...</span>
+        <span wire:loading.remove wire:target="submit">ثبت</span>
+    </button>
 </div>
 

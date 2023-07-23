@@ -12,8 +12,12 @@
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="stylesheet" href="{{asset('persiandate/css/persian-datepicker.css')}}"/>
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script src="{{asset('persiandate/js/jquery-2.2.4.min.js')}}"></script>
+    <script src="{{asset('persiandate/js/persian-datepicker.js')}}"></script>
+    <script src="{{asset('persiandate/js/persian-date.js')}}"></script>
+    @stack('scripts')
 @stop

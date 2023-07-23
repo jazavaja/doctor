@@ -2,7 +2,11 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Thesis;
+use App\Providers\GeneralMethod;
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
+use Morilog\Jalali\Jalalian;
 
 class ManageThesis extends Component
 {
@@ -13,11 +17,45 @@ class ManageThesis extends Component
     public $consultantMasterUserId;
     public $category_id;
     public $dateOfRegister;
-    public $DefenseDate;
+    public $defenseDate;
+
+    public $resultDateOfRegister;
+    public $resultDefenseDate;
+
     public $type;
+
+    public function setInitDate(){
+        if ($this->defenseDate == null){
+            $this->resultDefenseDate = now();
+        }
+        else
+        {
+            Log::info($this->defenseDate);
+            $this->resultDefenseDate = Jalalian::fromFormat('Y/m/d'
+                , GeneralMethod::forNumbers($this->defenseDate))->toCarbon();
+        }
+        if ($this->dateOfRegister== null)
+        {
+            $this->resultDateOfRegister= now();
+        }
+        else
+        {
+            $this->resultDateOfRegister = Jalalian::fromFormat('Y/m/d'
+                ,GeneralMethod::forNumbers($this->dateOfRegister) )->toCarbon();
+
+        }
+    }
 
     public function render()
     {
         return view('livewire.admin.manage-thesis');
+    }
+
+    public function submit(){
+        $this->setInitDate();
+        Thesis::create([
+           ''
+        ]);
+
     }
 }
