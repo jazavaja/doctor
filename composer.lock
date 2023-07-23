@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "66e71de44bec24eb814e833659daafeb",
+    "content-hash": "9ac5a8459e62f7513aa6116afadc6932",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -48,6 +48,61 @@
                 "source": "https://github.com/ColorlibHQ/AdminLTE/tree/v3.2.0"
             },
             "time": "2022-02-07T20:33:09+00:00"
+        },
+        {
+            "name": "aloko/nova-persian-datepicker",
+            "version": "v0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mustafaaloko/nova-persian-datepicker.git",
+                "reference": "eefc9816a95743c85eb4b60d02f42a0567638994"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mustafaaloko/nova-persian-datepicker/zipball/eefc9816a95743c85eb4b60d02f42a0567638994",
+                "reference": "eefc9816a95743c85eb4b60d02f42a0567638994",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Aloko\\PersianDatepicker\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Aloko\\PersianDatepicker\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mustafa Ehsan Alokozay",
+                    "email": "mustafa.aloko@gmail.com"
+                }
+            ],
+            "description": "Persian Datepicker for Laravel Nova.",
+            "keywords": [
+                "date",
+                "datepicker",
+                "datetime",
+                "laravel",
+                "nova",
+                "persian"
+            ],
+            "support": {
+                "issues": "https://github.com/mustafaaloko/nova-persian-datepicker/issues",
+                "source": "https://github.com/mustafaaloko/nova-persian-datepicker/tree/master"
+            },
+            "time": "2018-08-31T20:45:14+00:00"
         },
         {
             "name": "asm89/stack-cors",

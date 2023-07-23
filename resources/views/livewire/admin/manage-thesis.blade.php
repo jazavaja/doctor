@@ -34,6 +34,16 @@
     </div>
     <div class="form-group">
 
+        <input type="text" wire:model="date" class="example1">
+
+            <script>
+                $(document).ready(function() {
+                    $(".example1").pDatepicker({
+                        format: 'YYYY/MM/DD',
+                        locale: 'fa'
+                    });
+                });
+            </script>
         <div>
             <label for="dateOfRegister">Date Of Register</label>
             <input type="text" wire:model.defer="dateOfRegister" class="form-control" id="dateOfRegister"

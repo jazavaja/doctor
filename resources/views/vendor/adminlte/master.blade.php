@@ -9,6 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <link rel="stylesheet" href="css/persian.datepicker.css"/>
+    <script src="js/jquery.js"></script>
+    <script src="js/persian.date.js"></script>
+    <script src="js/persian.datepicker.js"></script>
     {{-- Custom Meta Tags --}}
     @yield('meta_tags')
 
