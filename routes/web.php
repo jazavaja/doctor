@@ -31,3 +31,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/admin/thesis/create_one',[\App\Http\Controllers\AdminController::class,'createThesisOne']);
+Route::get('/admin/thesis/create_group',[\App\Http\Controllers\AdminController::class,'createThesisGroup']);
