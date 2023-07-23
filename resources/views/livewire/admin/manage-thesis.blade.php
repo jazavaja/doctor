@@ -27,7 +27,7 @@
     </div>
     <div class="row">
         <div class="col-5">
-            <div class="form-group">
+            <div class="form-group" wire:ignore>
                 <label for="guideMasterUserId">Guide Master User ID</label>
                 <select wire:model.defer="guideMasterUserId" class="form-control p-1" id="guideMasterUserId"
                         name="guideMasterUserId">
@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="col-5">
-            <div class="form-group">
+            <div class="form-group" wire:ignore>
                 <label for="guideMasterUserId">Consultant ID</label>
                 <select wire:model.defer="consultantMasterUserId" class="form-control p-1" id="consultantMasterUserId"
                         name="guideMasterUserId">
@@ -47,7 +47,7 @@
             </div>
         </div>
     </div>
-    <div class="form-group">
+    <div class="form-group" wire:ignore>
         <label for="guideMasterUserId">Category ID</label>
         <select wire:model.defer="category_id" class="form-control p-1" id="category_id" name="category_id">
             <option value="">Select Category ID</option>
@@ -57,20 +57,6 @@
     <div class="form-group">
         <label for="category_id">Date defense</label>
         <input type="text" wire:model.defer="defenseDate" class="form-control text-center example1">
-        @push('scripts')
-            <script>
-                $(document).ready(function () {
-                    $(".example1").pDatepicker({
-                        format: 'YYYY/MM/DD',
-                        locale: 'fa',
-                        onSelect: function () {
-                            var date = $('.example1').val() // Use correct class name here
-                                @this.set('defenseDate', date, true); // Use 'defenseDate' instead of 'date_accounting'
-                        },
-                    });
-                });
-            </script>
-        @endpush
     </div>
     <div class="form-group">
         <label for="category_id">Date dateOfRegister</label>
@@ -81,32 +67,48 @@
     {{--        <label for="type">Type</label>--}}
     {{--        <input type="text" wire:model.defer="type" class="form-control" id="type" name="type" placeholder="Enter type">--}}
     {{--    </div>--}}
-    @push('scripts')
-        <script>
-            $(document).ready(function () {
-                $(".example2").pDatepicker({
-                    format: 'YYYY/MM/DD',
-                    locale: 'fa',
-                    onSelect: function () {
-                        var date = $('.example2').val() // Use correct class name here
-                            @this.set('dateOfRegister', date, true); // Use 'defenseDate' instead of 'date_accounting'
-                    },
-                });
-            });
 
-            $(document).ready(function () {
-                $('#guideMasterUserId').select2();
-                $('#consultantMasterUserId').select2();
-            });
-
-            $(document).ready(function () {
-                $('#guideMasterUserId').select2();
-            });
-        </script>
-    @endpush
     <button wire:click="submit" wire:loading.class="btn-loading" class="btn btn-danger">
         <span wire:loading wire:target="submit">لطفاً صبر کنید...</span>
         <span wire:loading.remove wire:target="submit">ثبت</span>
     </button>
+    @push('scripts')
+            <script>
+                // Function to initialize Select2
+                function initSelect2() {
+                    $('#guideMasterUserId').select2();
+                    $('#consultantMasterUserId').select2();
+                    $('#category_id').select2();
+
+                }
+
+                document.addEventListener('livewire:load', function () {
+                    $(".example1").pDatepicker({
+                        format: 'YYYY/MM/DD',
+                        locale: 'fa',
+                        onSelect: function () {
+                            var date = $('.example1').val();
+                            @this.set('defenseDate', date, true);
+                        },
+                    });
+
+                    $(".example2").pDatepicker({
+                        format: 'YYYY/MM/DD',
+                        locale: 'fa',
+                        onSelect: function () {
+                            var date = $('.example2').val();
+                            @this.set('dateOfRegister', date, true);
+                        },
+                    });
+
+                    initSelect2();
+                });
+
+                // Reinitialize Select2 after Livewire updates
+                Livewire.on('select2:initialized', function () {
+                    initSelect2();
+                });
+            </script>
+        @endpush
 </div>
 
