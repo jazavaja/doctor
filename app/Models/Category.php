@@ -31,7 +31,7 @@ class Category extends Model
         'title',
         'name',
     ];
-    public function theses(): HasMany
+    public function thesis(): HasMany
     {
         return $this->hasMany(Thesis::class);
     }

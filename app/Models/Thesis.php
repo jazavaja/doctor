@@ -18,6 +18,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class Thesis extends Model
 {
+    protected $table= 'thesis' ;
+
     protected $fillable = [
         'creatorName',
         'titleThesis',

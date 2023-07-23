@@ -54,7 +54,12 @@ class ManageThesis extends Component
     public function submit(){
         $this->setInitDate();
         Thesis::create([
-           ''
+           'creatorName'=>$this->creatorName,
+            'titleThesis'=>$this->titleThesis,
+            'guideMasterUserId'=>$this->guideMasterUserId,
+            'category_id'=>$this->category_id,
+            'dateOfRegister'=>$this->resultDateOfRegister,
+            'DefenseDate'=>$this->resultDefenseDate
         ]);
 
     }
