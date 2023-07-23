@@ -34,18 +34,33 @@
 
                 </li>
                 <li class="nav-item">
-
-                    <a class="nav-link  " href="/admin/thesis" dideo-checked="true">
-
-                        <i class="fas fa-fw fa-user "></i>
-
+                    <a href="#" class="nav-link" dideo-checked="true">
+                        <i class="nav-icon fas  fa-circle nav-icon"></i>
                         <p>
-                            پایان نامه ها
-
+                            مدیریت پایان نامه ها
+                            <i class="right fas fa-angle-left"></i>
                         </p>
-
                     </a>
-
+                    <ul class="nav nav-treeview" style="display: none;">
+                        <li class="nav-item">
+                            <a href="/admin/thesis/create_one" class="nav-link" dideo-checked="true">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضافه کردن پایان نامه</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/thesis/create_group" class="nav-link" dideo-checked="true">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضافه کردن بصورت اکسل</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/thesis/list" class="nav-link" dideo-checked="true">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>لیست کلی پایان نامه ها</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item">
 

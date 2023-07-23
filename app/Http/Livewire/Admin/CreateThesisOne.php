@@ -8,9 +8,8 @@ use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Morilog\Jalali\Jalalian;
 
-class ManageThesis extends Component
+class CreateThesisOne extends Component
 {
-
     public $creatorName;
     public $titleThesis;
     public $guideMasterUserId;
@@ -56,11 +55,6 @@ class ManageThesis extends Component
         }
     }
 
-    public function render()
-    {
-        return view('livewire.admin.manage-thesis');
-    }
-
     public function submit()
     {
         $this->setInitDate();
@@ -90,5 +84,9 @@ class ManageThesis extends Component
             // Log the error for debugging purposes (optional)
             Log::error($exception->getMessage());
         }
+    }
+    public function render()
+    {
+        return view('livewire.admin.create-thesis-one');
     }
 }

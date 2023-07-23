@@ -67,42 +67,41 @@
         <span wire:loading.remove wire:target="submit">ثبت</span>
     </button>
     @push('scripts')
-            <script>
-                // Function to initialize Select2
-                function initSelect2() {
-                    $('#guideMasterUserId').select2();
-                    $('#consultantMasterUserId').select2();
-                    $('#category_id').select2();
+        <script>
+            // Function to initialize Select2
+            function initSelect2() {
+                $('#guideMasterUserId').select2();
+                $('#consultantMasterUserId').select2();
+                $('#category_id').select2();
 
-                }
+            }
 
-                document.addEventListener('livewire:load', function () {
-                    $(".example1").pDatepicker({
-                        format: 'YYYY/MM/DD',
-                        locale: 'fa',
-                        onSelect: function () {
-                            var date = $('.example1').val();
-                            @this.set('defenseDate', date, true);
-                        },
-                    });
-
-                    $(".example2").pDatepicker({
-                        format: 'YYYY/MM/DD',
-                        locale: 'fa',
-                        onSelect: function () {
-                            var date = $('.example2').val();
-                            @this.set('dateOfRegister', date, true);
-                        },
-                    });
-
-                    initSelect2();
+            document.addEventListener('livewire:load', function () {
+                $(".example1").pDatepicker({
+                    format: 'YYYY/MM/DD',
+                    locale: 'fa',
+                    onSelect: function () {
+                        var date = $('.example1').val();
+                        @this.set('defenseDate', date, true);
+                    },
                 });
 
-                // Reinitialize Select2 after Livewire updates
-                Livewire.on('select2:initialized', function () {
-                    initSelect2();
+                $(".example2").pDatepicker({
+                    format: 'YYYY/MM/DD',
+                    locale: 'fa',
+                    onSelect: function () {
+                        var date = $('.example2').val();
+                        @this.set('dateOfRegister', date, true);
+                    },
                 });
-            </script>
-        @endpush
+
+                initSelect2();
+            });
+
+            // Reinitialize Select2 after Livewire updates
+            Livewire.on('select2:initialized', function () {
+                initSelect2();
+            });
+        </script>
+    @endpush
 </div>
-

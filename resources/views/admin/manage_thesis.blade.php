@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    @livewire('admin.manage-thesis')
+    @livewire('admin.create-thesis-one')
 @stop
 
 @section('css')
