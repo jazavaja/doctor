@@ -6,5 +6,7 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    //
+    public function loadThesis(){
+        return view('admin.manage_thesis');
+    }
 }

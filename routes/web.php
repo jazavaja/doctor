@@ -30,3 +30,4 @@ Route::get('/plan', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin/thesis',[\App\Http\Controllers\AdminController::class,'loadThesis']);
