@@ -12,4 +12,7 @@ class AdminController extends Controller
     public function createThesisGroup(){
         return view('admin.add_group_thesis');
     }
+    public function getListThesis(){
+        return view('admin.manage_thesis');
+    }
 }

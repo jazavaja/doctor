@@ -35,13 +35,13 @@ class Thesis extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function guideMasterUser(): BelongsTo
+    public function guideMasterUser()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'guideMasterUserId');
     }
 
-    public function consultantMasterUser(): BelongsTo
+    public function consultantMasterUser()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'consultantMasterUserId');
     }
 }
