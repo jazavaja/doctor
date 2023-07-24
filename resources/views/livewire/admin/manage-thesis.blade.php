@@ -21,7 +21,7 @@
                         <!-- Additional details content -->
                         <p>
                             <span class="text-bold">
-                                دسته بندی :
+                                 دپارتمان :
                             </span>
                             <span>
                                 {{ $t->category->title ?? 'No category' }}
@@ -34,6 +34,14 @@
                             </span>
                             <span>
                                 {{ $t->guideMasterUser->name ?? 'No guide' }}
+                            </span>
+                        </p>
+                        <p>
+                            <span class="text-bold">
+                                استاد مشاور :
+                            </span>
+                            <span>
+                                {{ $t->consultantMasterUser->name ?? 'No guide' }}
                             </span>
                         </p>
                         @php

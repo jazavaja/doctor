@@ -54,9 +54,9 @@
         </div>
     </div>
     <div class="form-group" wire:ignore>
-        <label for="category_id">انتخاب گروه(دانشکده)</label>
+        <label for="category_id">انتخاب دپارتمان</label>
         <select wire:model="category_id" class="form-control p-1" id="category_id" name="category_id">
-            <option value="">Select Category ID</option>
+            <option value="">Select Department ID</option>
             @foreach($listCategory as $category)
                 <option value="{{ $category->id }}">{{ $category->name }}</option>
             @endforeach

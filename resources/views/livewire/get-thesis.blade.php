@@ -31,7 +31,7 @@
                                 <summary>مشاهده جزییات</summary>
                                 <!-- Additional details content -->
                                 <p>
-                                    <span class="text-bold">دسته بندی :</span>
+                                    <span class="text-bold">دپارتمان :</span>
                                     <span>{{ $t->category->title ?? 'No category' }}</span>
                                 </p>
                                 <p>
