@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Imports\UsersImport;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Maatwebsite\Excel\Facades\Excel;
@@ -10,33 +11,29 @@ class CreateThesisGroup extends Component
 {
 
     use WithFileUploads;
-    public $file;
 
-    public function submit()
+    public $file;
+    public $data = [];
+
+
+    public function upload()
     {
         $this->validate([
-            'file' => 'required|file',
+            'file' => 'required|mimes:xls,xlsx'
         ]);
 
+        $path = $this->file->store('public');
 
-        // Get the path of the uploaded file
-        $filePath = $this->file->getRealPath();
+        $ff=storage_path('app/' . $path);
 
-        \Log::info($filePath);
-        // Read the contents of the Excel file using Maatwebsite\Excel
-        $data = Excel::toArray([], $filePath);
+        Excel::import(new UsersImport, $ff);
 
-        // $data will now contain an array representing the data in the Excel file
-        // Each element of the array corresponds to a row in the Excel file
+//        \Log::info(dd($this->data));
 
-        // Process the data as needed
-        foreach ($data[0] as $row) {
-            \Log::info("AAA".$row);
-            // $row is an array representing the data of each row in the Excel file
-            // Do something with each row, e.g., display or manipulate the data
-        }
+//        dd($this->data);
+        // Process the uploaded file using Maatwebsite\Excel
+//        session()->flash('success', 'File uploaded successfully!');
 
-        return redirect()->back()->with('success', 'Excel file read successfully.');
     }
 
     public function render()
