@@ -1,4 +1,4 @@
-<div dir="rtl">
+<div>
     <!-- Display the Bootstrap-styled pagination links -->
     <!-- Display the Bootstrap-styled pagination links -->
     <!-- resources/views/livewire/custom-pagination.blade.php -->
