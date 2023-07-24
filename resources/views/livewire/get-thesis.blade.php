@@ -11,6 +11,55 @@
         <!-- Table -->
 
         <div dir="rtl">
+            @if ($thesis->hasPages())
+                <nav>
+                    <ul class="pagination justify-content-center">
+                        {{-- First Page Link --}}
+                        @if ($thesis->onFirstPage())
+                            <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.first')">
+                                <span class="page-link" aria-hidden="true">Page 1</span>
+                            </li>
+                        @else
+                            <li class="page-item">
+                                <button class="page-link" wire:click="gotoPage(1)" wire:loading.attr="disabled" aria-label="@lang('pagination.first')">Page 1</button>
+                            </li>
+                        @endif
+
+                        {{-- Previous Page Link --}}
+                        @if ($thesis->onFirstPage())
+                            <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
+                                <span class="page-link" aria-hidden="true">&lsaquo;</span>
+                            </li>
+                        @else
+                            <li class="page-item">
+                                <button class="page-link" wire:click="previousPage" wire:loading.attr="disabled" rel="prev" aria-label="@lang('pagination.previous')">&lsaquo;</button>
+                            </li>
+                        @endif
+
+                        {{-- Next Page Link --}}
+                        @if ($thesis->hasMorePages())
+                            <li class="page-item">
+                                <button class="page-link" wire:click="nextPage" wire:loading.attr="disabled" rel="next" aria-label="@lang('pagination.next')">&rsaquo;</button>
+                            </li>
+                        @else
+                            <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
+                                <span class="page-link" aria-hidden="true">&rsaquo;</span>
+                            </li>
+                        @endif
+
+                        {{-- Last Page Link --}}
+                        @if ($thesis->hasMorePages())
+                            <li class="page-item">
+                                <button class="page-link" wire:click="gotoPage({{ $thesis->lastPage() }})" wire:loading.attr="disabled" aria-label="@lang('pagination.last')">Last Page</button>
+                            </li>
+                        @else
+                            <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.last')">
+                                <span class="page-link" aria-hidden="true">Last Page</span>
+                            </li>
+                        @endif
+                    </ul>
+                </nav>
+            @endif
             <table class="table table-bordered">
                 <thead>
                 <tr>
