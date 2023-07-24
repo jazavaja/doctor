@@ -13,6 +13,7 @@ return new class extends Migration
             $table->string('creatorName');
             $table->string('titleThesis');
             $table->unsignedBigInteger('guideMasterUserId')->nullable();
+            $table->unsignedBigInteger('consultantMasterUserId')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
 
             $table->date('dateOfRegister')->nullable();
@@ -27,6 +28,11 @@ return new class extends Migration
                 ->onDelete('cascade');
 
             $table->foreign('guideMasterUserId')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+
+            $table->foreign('consultantMasterUserId')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
