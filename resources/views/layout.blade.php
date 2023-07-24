@@ -7,7 +7,7 @@
 
 <head>
     @livewireStyles
-    @livewireStyles
+    @livewireScripts
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 

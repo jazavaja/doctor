@@ -10,12 +10,12 @@
 
         <!-- Table -->
 
-        <div dir="rtl">
-            @if ($thesis->hasPages())
+
+            @if ($thesis2->hasPages())
                 <nav>
                     <ul class="pagination justify-content-center">
                         {{-- First Page Link --}}
-                        @if ($thesis->onFirstPage())
+                        @if ($thesis2->onFirstPage())
                             <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.first')">
                                 <span class="page-link" aria-hidden="true">Page 1</span>
                             </li>
@@ -26,7 +26,7 @@
                         @endif
 
                         {{-- Previous Page Link --}}
-                        @if ($thesis->onFirstPage())
+                        @if ($thesis2->onFirstPage())
                             <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
                                 <span class="page-link" aria-hidden="true">&lsaquo;</span>
                             </li>
@@ -37,7 +37,7 @@
                         @endif
 
                         {{-- Next Page Link --}}
-                        @if ($thesis->hasMorePages())
+                        @if ($thesis2->hasMorePages())
                             <li class="page-item">
                                 <button class="page-link" wire:click="nextPage" wire:loading.attr="disabled" rel="next" aria-label="@lang('pagination.next')">&rsaquo;</button>
                             </li>
@@ -48,9 +48,9 @@
                         @endif
 
                         {{-- Last Page Link --}}
-                        @if ($thesis->hasMorePages())
+                        @if ($thesis2->hasMorePages())
                             <li class="page-item">
-                                <button class="page-link" wire:click="gotoPage({{ $thesis->lastPage() }})" wire:loading.attr="disabled" aria-label="@lang('pagination.last')">Last Page</button>
+                                <button class="page-link" wire:click="gotoPage({{ $thesis2->lastPage() }})" wire:loading.attr="disabled" aria-label="@lang('pagination.last')">Last Page</button>
                             </li>
                         @else
                             <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.last')">
@@ -70,7 +70,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($thesis as $t)
+                @foreach($thesis2 as $t)
                     <tr>
                         <td class="text-center">1</td>
                         <td class="text-center">{{$t->creatorName}}</td>
@@ -120,7 +120,6 @@
                 <!-- Add more rows here as needed -->
                 </tbody>
             </table>
-        </div>
     </div>
 
 </div>
