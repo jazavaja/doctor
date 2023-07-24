@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Imports\ThesisImport;
 use App\Imports\UsersImport;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -26,13 +27,13 @@ class CreateThesisGroup extends Component
 
         $ff=storage_path('app/' . $path);
 
-        Excel::import(new UsersImport, $ff);
 
-//        \Log::info(dd($this->data));
+        $import = new ThesisImport();
+        Excel::import($import, $ff);
 
-//        dd($this->data);
-        // Process the uploaded file using Maatwebsite\Excel
-//        session()->flash('success', 'File uploaded successfully!');
+// Get the total number of rows created
+        $rowCount = $import->getRowCountSuccess();
+        $fail = $import->getRowCountFail();
 
     }
 
