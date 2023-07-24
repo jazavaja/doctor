@@ -71,7 +71,7 @@
                 </td>
 
                 <td>
-                    <button class="btn btn-danger">
+                    <button class="btn btn-danger" wire:click="delete({{$t->id}})">
                         حذف
                     </button>
                 </td>

@@ -11,9 +11,15 @@ class ManageThesis extends Component
 
 
 
+    public function delete($id)
+    {
+        Thesis::find($id)->delete();
+    }
+
     public function render()
     {
         $r=Thesis::with('guideMasterUser')->with('consultantMasterUser')->with('category')->paginate(40);
         return view('livewire.admin.manage-thesis')->with('thesis',$r);
     }
+
 }
