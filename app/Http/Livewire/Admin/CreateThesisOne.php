@@ -70,6 +70,7 @@ class CreateThesisOne extends Component
                 'creatorName' => $this->creatorName,
                 'titleThesis' => $this->titleThesis,
                 'guideMasterUserId' => $this->guideMasterUserId,
+                'consultantMasterUserId'=>$this->consultantMasterUserId,
                 'category_id' => $this->category_id,
                 'dateOfRegister' => $this->resultDateOfRegister,
                 'DefenseDate' => $this->resultDefenseDate,

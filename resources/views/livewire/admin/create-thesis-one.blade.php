@@ -45,6 +45,9 @@
                 <select wire:model.defer="consultantMasterUserId" class="form-control p-1" id="consultantMasterUserId"
                         name="guideMasterUserId">
                     <option value="">Select guide consultant ID</option>
+                    @foreach($listUsers as $user)
+                        <option value="{{$user->id}}">{{$user->name}}</option>
+                    @endforeach
                     <!-- Add your options here -->
                 </select>
             </div>

@@ -14,7 +14,9 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
         "livewire/livewire": "^2.12",
-        "morilog/jalali": "^3.4"
+        "morilog/jalali": "^3.4",
+        "phpoffice/phpspreadsheet": "^1.29",
+        "psr/http-message": "^2.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.13",
