@@ -11,11 +11,11 @@
                 {{-- First Page Link --}}
                 @if ($thesis->onFirstPage())
                     <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.first')">
-                        <span class="page-link" aria-hidden="true">Page 1</span>
+                        <span class="page-link" aria-hidden="true">صفحه اول</span>
                     </li>
                 @else
                     <li class="page-item">
-                        <button class="page-link" wire:click="gotoPage(1)" wire:loading.attr="disabled" aria-label="@lang('pagination.first')">Page 1</button>
+                        <button class="page-link" wire:click="gotoPage(1)" wire:loading.attr="disabled" aria-label="@lang('pagination.first')">صفحه اول</button>
                     </li>
                 @endif
 
@@ -44,11 +44,11 @@
                 {{-- Last Page Link --}}
                 @if ($thesis->hasMorePages())
                     <li class="page-item">
-                        <button class="page-link" wire:click="gotoPage({{ $thesis->lastPage() }})" wire:loading.attr="disabled" aria-label="@lang('pagination.last')">Last Page</button>
+                        <button class="page-link" wire:click="gotoPage({{ $thesis->lastPage() }})" wire:loading.attr="disabled" aria-label="@lang('pagination.last')">صفحه آخر</button>
                     </li>
                 @else
                     <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.last')">
-                        <span class="page-link" aria-hidden="true">Last Page</span>
+                        <span class="page-link" aria-hidden="true">صفحه آخر</span>
                     </li>
                 @endif
             </ul>

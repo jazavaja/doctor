@@ -5,9 +5,11 @@ namespace App\Http\Livewire;
 use App\Models\Proposal;
 use App\Models\Thesis;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class GetProposal extends Component
 {
+    use WithPagination;
     public $search;
     protected $proposal;
 
