@@ -63,18 +63,33 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-
-                    <a class="nav-link  " href="/admin/proposal" dideo-checked="true">
-
-                        <i class="fas fa-fw fa-user "></i>
-
+                    <a href="#" class="nav-link" dideo-checked="true">
+                        <i class="nav-icon fas  fa-circle nav-icon"></i>
                         <p>
-                            پروپزال ها
-
+                            مدیریت پروپزال ها
+                            <i class="right fas fa-angle-left"></i>
                         </p>
-
                     </a>
-
+                    <ul class="nav nav-treeview" style="display: none;">
+                        <li class="nav-item">
+                            <a href="/admin/proposal/create_one" class="nav-link" dideo-checked="true">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضافه کردن پروپزال</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/proposal/create_group" class="nav-link" dideo-checked="true">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضافه کردن پروپزال بصورت اکسل</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/proposal/list" class="nav-link" dideo-checked="true">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>لیست کلی پروپزال</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item">
 

@@ -68,14 +68,12 @@ class ThesisImport implements ToModel
         }
 
     }
+
     public function getRowCountSuccess(): int
     {
         return $this->rowCountSuccess;
     }
 
-    /**
-     * @return int
-     */
     public function getRowCountFail(): int
     {
         return $this->rowCountFail;

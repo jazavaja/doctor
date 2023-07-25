@@ -32,5 +32,10 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/admin/thesis/create_one',[\App\Http\Controllers\AdminController::class,'createThesisOne']);
+Route::get('/admin/proposal/create_one',[\App\Http\Controllers\AdminController::class,'createProposalOne']);
+
 Route::get('/admin/thesis/create_group',[\App\Http\Controllers\AdminController::class,'createThesisGroup']);
+Route::get('/admin/proposal/create_group',[\App\Http\Controllers\AdminController::class,'createProposalGroup']);
+
 Route::get('/admin/thesis/list',[\App\Http\Controllers\AdminController::class,'getListThesis']);
+Route::get('/admin/proposal/list',[\App\Http\Controllers\AdminController::class,'getListProposal']);
