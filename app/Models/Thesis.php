@@ -27,12 +27,14 @@ class Thesis extends Model
     protected $keyType = 'integer';
 
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function user()
+    public function guideMasterUser()
     {
-        return $this->belongsTo('App\Models\User', 'guideMasterUserId');
+        return $this->belongsTo(User::class, 'guideMasterUserId');
+    }
+
+    public function consultantMasterUser()
+    {
+        return $this->belongsTo(User::class, 'consultantMasterUserId');
     }
 
 
