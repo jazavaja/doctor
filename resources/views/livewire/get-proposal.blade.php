@@ -22,24 +22,48 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>1</td>
-                <td>علی محسنی</td>
-                <td>بررسی هوش مصنوعی در علم دندان پزشکی</td>
-                <td>بررسی هوش مصنوعی در علم دندان پزشکی</td>
-                <td>بررسی هوش مصنوعی در علم دندان پزشکی</td>
-                <td>
-                    <details>
-                        <summary>مشاهده جزییات</summary>
-                        <!-- Additional details content -->
-                        <p>کد رهگیری : </p>
-                        <p>کد طرح : </p>
-                        <p>جایگاه : </p>
-                        <p>متن مصوبه : </p>
-                        <p>تاریخ ثبت : </p>
-                    </details>
-                </td>
-            </tr>
+            @foreach($proposal as $p)
+                <tr>
+                    <td>1</td>
+                    <td>{{$p->researcher}}</td>
+                    <td>{{ $p->system->name ?? '' }}</td>
+                    <td>{{ $p->title_proposal ?? '' }}</td>
+                    <td>{{ $p->summary_result ?? '' }}</td>
+                    <td>
+                        <details>
+                            <summary>مشاهده جزییات</summary>
+                            <!-- Additional details content -->
+                            <p>
+                                <span>
+                                    کد رهگیری :
+                                </span>
+                                {{$p->tracking_code}}
+                            </p>
+                            <p>
+                                <span>کد طرح : </span>
+                                {{$p->proposal_code}}
+
+                            </p>
+                            <p>
+                                <span>جایگاه : </span>
+                                {{$p->position->name ?? ''}}
+                            </p>
+                            <p>
+                                <span>متن مصوبه : </span>
+                                {{$p->result ?? ''}}
+                            </p>
+                            <p>
+                                <span>تاریخ ثبت : </span>
+                                <span>
+                                    {{\Morilog\Jalali\Jalalian::fromCarbon(\Carbon\Carbon::parse($p->date_register))->format('d-m-Y')}}
+                                </span>
+
+                            </p>
+                        </details>
+                    </td>
+                </tr>
+            @endforeach
+
             <!-- Add more rows here as needed -->
             </tbody>
         </table>
