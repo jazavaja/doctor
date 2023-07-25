@@ -3,9 +3,8 @@
     <div class="container">
         <!-- Search Bar -->
         <div class="mb-3 input-group">
-            <input type="text" class="form-control text-center" id="searchInput"
-                   placeholder="نام عنوان مقاله یا استاد راهنمای مقاله را جستجو کنید">
-            <button class="btn btn-primary" id="searchButton">جستجو</button>
+            <input type="text" class="form-control text-center" wire:model.defer="search_input" placeholder="نام عنوان مقاله یا استاد راهنمای مقاله را جستجو کنید">
+            <button class="btn btn-primary" id="searchButton" wire:click="doSearch">جستجو</button>
         </div>
 
         <!-- Table -->
