@@ -1,3 +1,15 @@
+<!-- livewire/upload-excel.blade.php -->
 <div>
-    {{-- The whole world belongs to you. --}}
+    @if (session()->has('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+    <form wire:submit="upload">
+        <input type="file" wire:model="file">
+        @error('file')
+        <span class="text-red-500">{{ $message }}</span>
+        @enderror
+        <button type="submit">Upload Excel</button>
+    </form>
 </div>
