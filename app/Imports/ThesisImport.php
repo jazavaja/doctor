@@ -2,7 +2,7 @@
 
 namespace App\Imports;
 
-use App\Models\thesis;
+use App\Models\Thesis;
 use App\Providers\GeneralMethod;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\OnEachRow;
