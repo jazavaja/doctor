@@ -51,7 +51,7 @@ class ThesisImport implements ToModel
         }
 
         try {
-            thesis::create([
+            Thesis::create([
                 'creatorName' => $creatorName,
                 'titleThesis' => $titleThesis,
                 'category_id' => $category_id,
