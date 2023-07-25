@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $title_proposal
  * @property string $researcher
  * @property string $summary_result
+ * @property string $result
  * @property string $date_register
  * @property string $created_at
  * @property string $updated_at
@@ -38,7 +39,8 @@ class Proposal extends Model
     /**
      * @var array
      */
-    protected $fillable = ['system_id', 'position_id', 'tracking_code', 'proposal_code', 'title_proposal', 'researcher', 'summary_result', 'date_register', 'created_at', 'updated_at'];
+    protected $fillable = ['system_id', 'position_id', 'tracking_code', 'proposal_code',
+        'title_proposal', 'researcher', 'summary_result','result', 'date_register', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

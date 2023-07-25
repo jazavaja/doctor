@@ -3,8 +3,10 @@
     <div class="container">
         <!-- Search Bar -->
         <div class="mb-3 input-group">
-            <input type="text" class="form-control" id="searchInput" placeholder="Search...">
-            <button class="btn btn-primary" id="searchButton">Search</button>
+            <input type="text" wire:model.defer="search"
+                   class="form-control text-center" id="searchInput"
+                   placeholder="جستجو در پروپزال ها بر اساس نام پروپزال یا کد رهگیری ">
+            <button class="btn btn-primary" id="searchButton" wire:click="doSearch">Search</button>
         </div>
 
         <!-- Table -->
@@ -12,8 +14,10 @@
             <thead>
             <tr>
                 <th>ردیف</th>
-                <th>نام پدید اورنده</th>
+                <th>پژوهشگر</th>
+                <th>سیستم</th>
                 <th>عنوان پایان نامه</th>
+                <th>خلاصه نتیجه</th>
                 <th>جزییات</th>
             </tr>
             </thead>
@@ -22,14 +26,15 @@
                 <td>1</td>
                 <td>علی محسنی</td>
                 <td>بررسی هوش مصنوعی در علم دندان پزشکی</td>
+                <td>بررسی هوش مصنوعی در علم دندان پزشکی</td>
+                <td>بررسی هوش مصنوعی در علم دندان پزشکی</td>
                 <td>
                     <details>
                         <summary>مشاهده جزییات</summary>
                         <!-- Additional details content -->
-                        <p>دسته بندی : </p>
-                        <p>استاد راهنما : </p>
-                        <p>استاد مشاور : </p>
-                        <p>تاریخ دفاع : </p>
+                        <p>کد رهگیری : </p>
+                        <p>کد طرح : </p>
+                        <p>جایگاه : </p>
                         <p>تاریخ ثبت : </p>
                     </details>
                 </td>

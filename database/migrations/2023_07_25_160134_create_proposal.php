@@ -22,6 +22,7 @@ class CreateProposal extends Migration
             $table->unsignedBigInteger('position_id')->nullable();
             $table->text('researcher');
             $table->text('summary_result');
+            $table->text('result');
             $table->date('date_register')->nullable();
             $table->timestamps();
 
