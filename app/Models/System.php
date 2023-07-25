@@ -30,6 +30,6 @@ class System extends Model
      */
     public function proposals()
     {
-        return $this->hasMany('App\Proposal');
+        return $this->hasMany('App\Models\Proposal');
     }
 }

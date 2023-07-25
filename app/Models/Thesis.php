@@ -32,7 +32,7 @@ class Thesis extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\User', 'guideMasterUserId');
+        return $this->belongsTo('App\Models\User', 'guideMasterUserId');
     }
 
 
@@ -41,6 +41,6 @@ class Thesis extends Model
      */
     public function category()
     {
-        return $this->belongsTo('App\Category');
+        return $this->belongsTo('App\Models\Category');
     }
 }
