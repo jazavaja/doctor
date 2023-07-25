@@ -69,9 +69,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($thesis2 as $t)
+                @foreach($thesis2 as $index => $t)
+                    @php
+                        // Calculate the row number dynamically based on the current page and loop index
+                        $rowNumber = ($this->page - 1) * 40 + ($index + 1);
+                    @endphp
                     <tr>
-                        <td class="text-center">1</td>
+                        <td class="text-center">{{$rowNumber}}</td>
                         <td class="text-center">{{$t->creatorName}}</td>
                         <td class="text-center">{{$t->titleThesis}}</td>
                         <td class="text-center">

@@ -71,9 +71,13 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($proposal as $p)
+            @foreach($proposal as $index => $p)
+                @php
+                    // Calculate the row number dynamically based on the current page and loop index
+                    $rowNumber = ($this->page - 1) * 40 + ($index + 1);
+                @endphp
                 <tr>
-                    <td>1</td>
+                    <td>{{$rowNumber}}</td>
                     <td>{{$p->researcher}}</td>
                     <td>{{ $p->system->name ?? '' }}</td>
                     <td>{{ $p->title_proposal ?? '' }}</td>
