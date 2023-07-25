@@ -1,9 +1,9 @@
 <div>
     {{-- Stop trying to control. --}}
-    <div class="container">
+    <div dir="rtl" class="container">
         <!-- Search Bar -->
         <div class="mb-3 input-group">
-            <input type="text" class="form-control text-center" wire:model.defer="search_input" placeholder="نام عنوان مقاله یا استاد راهنمای مقاله را جستجو کنید">
+            <input type="text" class="form-control text-center" wire:model.defer="search_input" placeholder="نام عنوان مقاله یا استاد راهنمای مقاله ، نویسنده مقاله را جستجو کنید">
             <button class="btn btn-primary" id="searchButton" wire:click="doSearch">جستجو</button>
         </div>
 

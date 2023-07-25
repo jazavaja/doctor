@@ -25,7 +25,9 @@ class GetThesis extends Component
             ->orWhereHas('consultantMasterUser', function ($query) use ($searchName) {
                 $query->where('name', 'like', '%' . $searchName . '%');
             })
-            ->orWhere('titleThesis','like', '%' . $searchName . '%');
+            ->orWhere('titleThesis','like', '%' . $searchName . '%')
+            ->orWhere('creatorName','like', '%' . $searchName . '%')
+        ;
 
         $this->thesis = $ooo->paginate(40);
 
