@@ -21,27 +21,26 @@ class Thesis extends Model
     protected $table= 'thesis' ;
 
     protected $fillable = [
-        'creatorName',
-        'titleThesis',
-        'guideMasterUserId',
-        'consultantMasterUserId',
-        'category_id',
-        'dateOfRegister',
-        'DefenseDate',
-        'type',
-    ];
+        'category_id', 'creatorName', 'titleThesis', 'guideMasterUserId',
+        'consultantMasterUserId', 'dateOfRegister', 'DefenseDate', 'type', 'created_at', 'updated_at'];
+
+    protected $keyType = 'integer';
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'guideMasterUserId');
+    }
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function category()
     {
-        return $this->belongsTo(Category::class);
-    }
-
-    public function guideMasterUser()
-    {
-        return $this->belongsTo(User::class, 'guideMasterUserId');
-    }
-
-    public function consultantMasterUser()
-    {
-        return $this->belongsTo(User::class, 'consultantMasterUserId');
+        return $this->belongsTo('App\Category');
     }
 }
