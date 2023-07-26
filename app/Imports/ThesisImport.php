@@ -23,13 +23,7 @@ class ThesisImport implements ToModel
 
     public function model(array $row)
     {
-        $creatorName=$row[0];
-        $titleThesis=$row[1];
-        $category_id=$row[2];
-        $guideMasterUserId=$row[3];
-        $consultantMasterUserId=$row[4];
-        $dateOfRegister=$row[5];
-        $defenseDate=$row[6];
+        [$creatorName,$titleThesis,$category_id,$guideMasterUserId,$consultantMasterUserId,$dateOfRegister,$defenseDate] = $row;
 
         $resR = null;
         $resD = null;

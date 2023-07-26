@@ -30,17 +30,20 @@ Route::get('/plan', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/admin/thesis/create_one',[\App\Http\Controllers\AdminController::class,'createThesisOne']);
-Route::get('/admin/proposal/create_one',[\App\Http\Controllers\AdminController::class,'createProposalOne']);
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/admin/thesis/create_one',[\App\Http\Controllers\AdminController::class,'createThesisOne']);
+    Route::get('/admin/proposal/create_one',[\App\Http\Controllers\AdminController::class,'createProposalOne']);
 
-Route::get('/admin/thesis/create_group',[\App\Http\Controllers\AdminController::class,'createThesisGroup']);
-Route::get('/admin/category/create_group',[\App\Http\Controllers\AdminController::class,'createCategoryGroup']);
-Route::get('/admin/position/create_group',[\App\Http\Controllers\AdminController::class,'createPositionGroup']);
-Route::get('/admin/masters/create_group',[\App\Http\Controllers\AdminController::class,'createMastersGroup']);
-Route::get('/admin/system/create_group',[\App\Http\Controllers\AdminController::class,'createSystemGroup']);
-Route::get('/admin/proposal/create_group',[\App\Http\Controllers\AdminController::class,'createProposalGroup']);
-Route::get('/admin/plan/create_group',[\App\Http\Controllers\AdminController::class,'createPlanGroup']);
+    Route::get('/admin/thesis/create_group',[\App\Http\Controllers\AdminController::class,'createThesisGroup']);
+    Route::get('/admin/category/create_group',[\App\Http\Controllers\AdminController::class,'createCategoryGroup']);
+    Route::get('/admin/position/create_group',[\App\Http\Controllers\AdminController::class,'createPositionGroup']);
+    Route::get('/admin/masters/create_group',[\App\Http\Controllers\AdminController::class,'createMastersGroup']);
+    Route::get('/admin/system/create_group',[\App\Http\Controllers\AdminController::class,'createSystemGroup']);
+    Route::get('/admin/proposal/create_group',[\App\Http\Controllers\AdminController::class,'createProposalGroup']);
+    Route::get('/admin/plan/create_group',[\App\Http\Controllers\AdminController::class,'createPlanGroup']);
 
-Route::get('/admin/thesis/list',[\App\Http\Controllers\AdminController::class,'getListThesis']);
-Route::get('/admin/proposal/list',[\App\Http\Controllers\AdminController::class,'getListProposal']);
+    Route::get('/admin/thesis/list',[\App\Http\Controllers\AdminController::class,'getListThesis']);
+    Route::get('/admin/proposal/list',[\App\Http\Controllers\AdminController::class,'getListProposal']);
+});
+
