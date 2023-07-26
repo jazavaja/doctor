@@ -38,7 +38,7 @@ class CreatePlanGroup extends Component
     }
 
     public function deleteAllPlan(){
-        Plan::truncate();
+        Plan::query()->delete();
     }
 
     public function render()

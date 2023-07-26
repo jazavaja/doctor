@@ -39,7 +39,7 @@ class CreateProposalGroup extends Component
 
 
     public function deleteProposals(){
-        Proposal::truncate();
+        Proposal::query()->delete();
     }
     public function render()
     {

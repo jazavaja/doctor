@@ -37,7 +37,7 @@ class CreateSystemGroup extends Component
     }
 
     public function deleteAllSystems(){
-        System::truncate();
+        System::query()->delete();
     }
     public function render()
     {

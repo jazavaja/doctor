@@ -37,7 +37,7 @@ class CreateCategoryGroup extends Component
     }
 
     public function deleteCategory(){
-        Category::truncate();
+        Category::query()->delete();
     }
 
     public function render()

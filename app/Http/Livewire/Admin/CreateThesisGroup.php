@@ -39,7 +39,7 @@ class CreateThesisGroup extends Component
     }
 
     public function deleteAllThesis(){
-        Thesis::truncate();
+        Thesis::query()->delete();
     }
     public function render()
     {

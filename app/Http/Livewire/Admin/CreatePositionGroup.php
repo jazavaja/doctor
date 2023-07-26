@@ -37,7 +37,7 @@ class CreatePositionGroup extends Component
     }
 
     public function deletePositions(){
-        Position::truncate();
+        Position::query()->delete();
     }
     public function render()
     {
