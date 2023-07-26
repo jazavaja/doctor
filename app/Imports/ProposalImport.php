@@ -22,8 +22,8 @@ class ProposalImport implements ToModel
 
     public function model(array $row)
     {
-        $tracking_code=$row[0];
-        $proposal_code=$row[1];
+        $tracking_code=$row[0] ;
+        $proposal_code=$row[1] ?? '';
         $system_id=$row[2];
         $title_proposal=$row[3];
         $position_id=$row[4];

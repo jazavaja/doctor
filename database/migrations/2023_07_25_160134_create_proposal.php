@@ -26,8 +26,8 @@ class CreateProposal extends Migration
             $table->date('date_register')->nullable();
             $table->timestamps();
 
-            $table->foreign('system_id')->references('id')->on('systems');
-            $table->foreign('position_id')->references('id')->on('positions');
+            $table->foreign('system_id')->references('id')->on('systems')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreign('position_id')->references('id')->on('positions')->cascadeOnUpdate()->cascadeOnDelete();
         });
     }
 
