@@ -63,6 +63,19 @@
                 </li>
                 <li class="nav-item">
 
+                    <a class="nav-link" href="/admin/masters/create_group" dideo-checked="true">
+
+                        <i class="fas fa-fw fa-user "></i>
+
+                        <p>
+                            اساتید
+                        </p>
+
+                    </a>
+
+                </li>
+                <li class="nav-item">
+
                     <a class="nav-link" href="/admin/system/create_group" dideo-checked="true">
 
                         <i class="fas fa-fw fa-user "></i>

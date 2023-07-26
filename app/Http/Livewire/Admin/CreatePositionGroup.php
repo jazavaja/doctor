@@ -14,7 +14,7 @@ class CreatePositionGroup extends Component
 
     public $file;
     public $data = [];
-
+    protected $positions;
 
     public function upload()
     {
@@ -41,6 +41,7 @@ class CreatePositionGroup extends Component
     }
     public function render()
     {
-        return view('livewire.admin.create-position-group');
+        $this->positions=Position::take(20)->get();
+        return view('livewire.admin.create-position-group')->with('positions',$this->positions);
     }
 }

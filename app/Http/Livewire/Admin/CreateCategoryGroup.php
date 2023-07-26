@@ -14,7 +14,7 @@ class CreateCategoryGroup extends Component
 
     public $file;
     public $data = [];
-
+    protected $category;
 
     public function upload()
     {
@@ -42,6 +42,7 @@ class CreateCategoryGroup extends Component
 
     public function render()
     {
-        return view('livewire.admin.create-category-group');
+        $this->category=Category::take(20)->get();
+        return view('livewire.admin.create-category-group')->with('category',$this->category);
     }
 }

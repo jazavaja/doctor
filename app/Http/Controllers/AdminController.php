@@ -21,6 +21,9 @@ class AdminController extends Controller
     public function createPositionGroup(){
         return view('admin.add_position_group');
     }
+    public function createMastersGroup(){
+        return view('admin.add_group_masters');
+    }
 
     public function createPlanGroup(){
         return view('admin.add_group_plan');

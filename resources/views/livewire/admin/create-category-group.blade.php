@@ -3,7 +3,7 @@
     <div dir="rtl" class="text-center bg-warning">
         فرمت فایل اکسل می بایست
         <br>
-        id,title,name
+        id,name
         <br>
         باشد
         <br>
@@ -28,4 +28,25 @@
         <span wire:loading wire:target="deleteCategory">لطفاً صبر کنید...</span>
         <span wire:loading.remove wire:target="deleteCategory"> حذف همه</span>
     </button>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>ردیف</th>
+            <th>نام</th>
+            <th>عنوان</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($category as $p)
+            <tr>
+                <td>{{$p->id}}</td>
+                <td>{{$p->title}}</td>
+                <td>{{$p->name}}</td>
+            </tr>
+        @endforeach
+
+        <!-- Add more rows here as needed -->
+        </tbody>
+    </table>
+
 </div>

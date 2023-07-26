@@ -27,4 +27,23 @@
         <span wire:loading.remove wire:target="deletePositions"> حذف همه</span>
     </button>
 
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>ردیف</th>
+            <th>عنوان</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($positions as $p)
+            <tr>
+                <td>{{$p->id}}</td>
+                <td>{{$p->name}}</td>
+            </tr>
+        @endforeach
+
+        <!-- Add more rows here as needed -->
+        </tbody>
+    </table>
+
 </div>

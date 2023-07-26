@@ -14,7 +14,7 @@ class CreateSystemGroup extends Component
 
     public $file;
     public $data = [];
-
+    protected $system;
 
     public function upload()
     {
@@ -41,6 +41,7 @@ class CreateSystemGroup extends Component
     }
     public function render()
     {
-        return view('livewire.admin.create-system-group');
+        $this->system=System::take(20)->get();
+        return view('livewire.admin.create-system-group')->with('system',$this->system);
     }
 }
