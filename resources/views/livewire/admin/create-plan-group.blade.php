@@ -5,7 +5,7 @@
             {{ session('success') }}
         </div>
     @endif
-    <form wire:submit="upload">
+    <form wire:submit.prevent="upload">
         <input type="file" wire:model="file">
         @error('file')
         <span class="text-red-500">{{ $message }}</span>
