@@ -13,6 +13,10 @@ class AdminController extends Controller
         return view('admin.add_group_thesis');
     }
 
+    public function createPlanGroup(){
+        return view('admin.add_group_plan');
+    }
+
     public function createProposalGroup(){
         return view('admin.add_group_proposal');
     }

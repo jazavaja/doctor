@@ -36,6 +36,7 @@ Route::get('/admin/proposal/create_one',[\App\Http\Controllers\AdminController::
 
 Route::get('/admin/thesis/create_group',[\App\Http\Controllers\AdminController::class,'createThesisGroup']);
 Route::get('/admin/proposal/create_group',[\App\Http\Controllers\AdminController::class,'createProposalGroup']);
+Route::get('/admin/plan/create_group',[\App\Http\Controllers\AdminController::class,'createPlanGroup']);
 
 Route::get('/admin/thesis/list',[\App\Http\Controllers\AdminController::class,'getListThesis']);
 Route::get('/admin/proposal/list',[\App\Http\Controllers\AdminController::class,'getListProposal']);

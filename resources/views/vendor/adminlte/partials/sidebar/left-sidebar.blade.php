@@ -45,13 +45,13 @@
                         <li class="nav-item">
                             <a href="/admin/thesis/create_one" class="nav-link" dideo-checked="true">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>اضافه کردن پایان نامه</p>
+                                <p>اضافه کردن تکی</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="/admin/thesis/create_group" class="nav-link" dideo-checked="true">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>اضافه کردن بصورت اکسل</p>
+                                <p>اضافه کردن اکسل</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -74,13 +74,13 @@
                         <li class="nav-item">
                             <a href="/admin/proposal/create_one" class="nav-link" dideo-checked="true">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>اضافه کردن پروپزال</p>
+                                <p>اضافه کردن تکی</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="/admin/proposal/create_group" class="nav-link" dideo-checked="true">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>اضافه کردن پروپزال بصورت اکسل</p>
+                                <p>اضافه کردن اکسل</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -92,18 +92,33 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-
-                    <a class="nav-link  " href="/admin/plans" dideo-checked="true">
-
-                        <i class="fas fa-fw fa-user "></i>
-
+                    <a href="#" class="nav-link" dideo-checked="true">
+                        <i class="nav-icon fas  fa-circle nav-icon"></i>
                         <p>
-                            طرح ها
-
+                            مدیریت طرح ها
+                            <i class="right fas fa-angle-left"></i>
                         </p>
-
                     </a>
-
+                    <ul class="nav nav-treeview" style="display: none;">
+                        <li class="nav-item">
+                            <a href="/admin/plan/create_one" class="nav-link" dideo-checked="true">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضافه کردن تکی</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/plan/create_group" class="nav-link" dideo-checked="true">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضافه کردن اکسل</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/plan/list" class="nav-link" dideo-checked="true">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>لیست کلی طرح ها</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </nav>
