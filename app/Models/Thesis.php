@@ -43,7 +43,7 @@ class Thesis extends Model
     protected $table= 'thesis' ;
 
     protected $fillable = [
-        'creatorName',
+        'id','creatorName',
         'titleThesis',
         'guideMasterUserId',
         'consultantMasterUserId',

@@ -35,6 +35,9 @@ Route::get('/admin/thesis/create_one',[\App\Http\Controllers\AdminController::cl
 Route::get('/admin/proposal/create_one',[\App\Http\Controllers\AdminController::class,'createProposalOne']);
 
 Route::get('/admin/thesis/create_group',[\App\Http\Controllers\AdminController::class,'createThesisGroup']);
+Route::get('/admin/category/create_group',[\App\Http\Controllers\AdminController::class,'createCategoryGroup']);
+Route::get('/admin/position/create_group',[\App\Http\Controllers\AdminController::class,'createPositionGroup']);
+Route::get('/admin/system/create_group',[\App\Http\Controllers\AdminController::class,'createSystemGroup']);
 Route::get('/admin/proposal/create_group',[\App\Http\Controllers\AdminController::class,'createProposalGroup']);
 Route::get('/admin/plan/create_group',[\App\Http\Controllers\AdminController::class,'createPlanGroup']);
 

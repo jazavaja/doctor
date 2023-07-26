@@ -22,9 +22,8 @@
         <button type="submit">Upload Excel</button>
     </form>
     <hr>
-    <button wire:click="deleteAllThesis" wire:loading.class="btn-loading" class="btn btn-danger">
-        <span wire:loading wire:target="deleteAllThesis">لطفاً صبر کنید...</span>
-        <span wire:loading.remove wire:target="deleteAllThesis"> حذف همه</span>
+    <button wire:click="deleteAllSystems" wire:loading.class="btn-loading" class="btn btn-danger">
+        <span wire:loading wire:target="deleteAllSystems">لطفاً صبر کنید...</span>
+        <span wire:loading.remove wire:target="deleteAllSystems"> حذف همه</span>
     </button>
-
 </div>

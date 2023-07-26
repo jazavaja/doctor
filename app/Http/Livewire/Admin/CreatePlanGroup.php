@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Imports\PlanImport;
 use App\Imports\ProposalImport;
+use App\Models\Plan;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Maatwebsite\Excel\Facades\Excel;
@@ -34,6 +35,10 @@ class CreatePlanGroup extends Component
         $rowCount = $import->getRowCountSuccess();
         $fail = $import->getRowCountFail();
 
+    }
+
+    public function deleteAllPlan(){
+        Plan::truncate();
     }
 
     public function render()

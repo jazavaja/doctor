@@ -57,7 +57,7 @@ class Proposal extends Model
     /**
      * @var array
      */
-    protected $fillable = ['system_id', 'position_id', 'tracking_code', 'proposal_code',
+    protected $fillable = ['id','system_id', 'position_id', 'tracking_code', 'proposal_code',
         'title_proposal', 'researcher', 'summary_result','result', 'date_register', 'created_at', 'updated_at'];
 
     /**

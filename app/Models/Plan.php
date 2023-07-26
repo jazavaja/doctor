@@ -57,5 +57,5 @@ class Plan extends Model
     /**
      * @var array
      */
-    protected $fillable = ['title_plan', 'name_project_manager', 'time_project', 'date_start', 'date_end', 'amount_contract', 'date_contract', 'executive_obligations_summary', 'names_colleagues', 'description', 'created_at', 'updated_at'];
+    protected $fillable = ['id','title_plan', 'name_project_manager', 'time_project', 'date_start', 'date_end', 'amount_contract', 'date_contract', 'executive_obligations_summary', 'names_colleagues', 'description', 'created_at', 'updated_at'];
 }

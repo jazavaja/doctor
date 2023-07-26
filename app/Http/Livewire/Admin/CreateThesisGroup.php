@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Imports\ThesisImport;
 use App\Imports\UsersImport;
+use App\Models\Thesis;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Maatwebsite\Excel\Facades\Excel;
@@ -37,6 +38,9 @@ class CreateThesisGroup extends Component
 
     }
 
+    public function deleteAllThesis(){
+        Thesis::truncate();
+    }
     public function render()
     {
         return view('livewire.admin.create-thesis-group');
