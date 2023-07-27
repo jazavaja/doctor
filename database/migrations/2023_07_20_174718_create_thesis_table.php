@@ -30,12 +30,12 @@ return new class extends Migration
             $table->foreign('guideMasterUserId')
                 ->references('id')
                 ->on('users')
-                ->onDelete('cascade');
+                ->cascadeOnUpdate()->cascadeOnDelete();
 
             $table->foreign('consultantMasterUserId')
                 ->references('id')
                 ->on('users')
-                ->onDelete('cascade');
+                ->cascadeOnUpdate()->cascadeOnDelete();
         });
     }
 

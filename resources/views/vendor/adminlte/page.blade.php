@@ -1,5 +1,6 @@
 @extends('adminlte::master')
-
+@livewireStyles
+@livewireScripts
 @inject('layoutHelper', 'JeroenNoten\LaravelAdminLte\Helpers\LayoutHelper')
 
 @section('adminlte_css')

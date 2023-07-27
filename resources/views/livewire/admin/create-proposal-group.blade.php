@@ -1,14 +1,23 @@
+<!-- livewire/upload-excel.blade.php -->
 <div>
-    {{-- Nothing in the world is as soft and yielding as water. --}}
-    <div dir="rtl" class="container">
-        <!-- Search Bar -->
-        <div class="mb-3 input-group">
-            <input type="text" wire:model.defer="search"
-                   class="form-control text-center" id="searchInput"
-                   placeholder="جستجو در پروپزال ها بر اساس نام پروپزال یا پژوهشگر یا کد رهگیری ">
-            <button class="btn btn-primary" id="searchButton" wire:click="doSearch">جستجو</button>
+    @if (session()->has('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
         </div>
-
+    @endif
+    <hr>
+    <form wire:submit="upload">
+        <input type="file" wire:model.defer="file">
+        @error('file')
+        <span class="text-red-500">{{ $message }}</span>
+        @enderror
+        <button type="submit">Upload Excel</button>
+    </form>
+    <hr>
+        <button wire:click="deleteProposals" wire:loading.class="btn-loading" class="btn btn-danger">
+            <span wire:loading wire:target="deleteProposals">لطفاً صبر کنید...</span>
+            <span wire:loading.remove wire:target="deleteProposals"> حذف همه</span>
+        </button>
         @if ($proposal->hasPages())
             <nav>
                 <ul class="pagination justify-content-center">
@@ -57,62 +66,33 @@
                     @endif
                 </ul>
             </nav>
-    @endif
-        <!-- Table -->
+        @endif
         <table class="table table-bordered">
             <thead>
             <tr>
                 <th>ردیف</th>
-                <th>پژوهشگر</th>
-                <th>سیستم</th>
-                <th>عنوان پایان نامه</th>
+                <th>کد رهگیری</th>
+                <th>کد طرح</th>
+                <th>عنوان پروپزال</th>
+                <th>محقق</th>
                 <th>خلاصه نتیجه</th>
-                <th>جزییات</th>
+                <th> نتیجه</th>
             </tr>
             </thead>
             <tbody>
-            @foreach($proposal as $index => $p)
-                @php
-                    // Calculate the row number dynamically based on the current page and loop index
-                    $rowNumber = ($this->page - 1) * 40 + ($index + 1);
-                @endphp
+            @foreach($proposal as $p)
                 <tr>
-                    <td>{{$rowNumber}}</td>
+                    <td>{{$p->id}}</td>
+                    <td>{{$p->tracking_code}}</td>
+                    <td>{{$p->proposal_code}}</td>
+                    <td>{{$p->title_proposal}}</td>
                     <td>{{$p->researcher}}</td>
-                    <td>{{ $p->system->name ?? '' }}</td>
-                    <td>{{ $p->title_proposal ?? '' }}</td>
-                    <td>{{ $p->summary_result ?? '' }}</td>
+                    <td>{{$p->summary_result}}</td>
+                    <td>{{$p->result}}</td>
                     <td>
-                        <details>
-                            <summary>مشاهده جزییات</summary>
-                            <!-- Additional details content -->
-                            <p>
-                                <span>
-                                    کد رهگیری :
-                                </span>
-                                {{$p->tracking_code}}
-                            </p>
-                            <p>
-                                <span>کد طرح : </span>
-                                {{$p->proposal_code}}
-
-                            </p>
-                            <p>
-                                <span>جایگاه : </span>
-                                {{$p->position->name ?? ''}}
-                            </p>
-                            <p>
-                                <span>متن مصوبه : </span>
-                                {{$p->result ?? ''}}
-                            </p>
-                            <p>
-                                <span>تاریخ ثبت : </span>
-                                <span>
-                                    {{\Morilog\Jalali\Jalalian::fromCarbon(\Carbon\Carbon::parse($p->date_register))->format('d-m-Y')}}
-                                </span>
-
-                            </p>
-                        </details>
+                        <button wire:click="delete({{$p->id}})">
+                            حذف
+                        </button>
                     </td>
                 </tr>
             @endforeach
@@ -120,6 +100,6 @@
             <!-- Add more rows here as needed -->
             </tbody>
         </table>
-    </div>
+
 
 </div>

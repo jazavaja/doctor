@@ -14,6 +14,28 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|Thesis newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Thesis newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Thesis query()
+ * @property int $id
+ * @property string $creatorName
+ * @property string $titleThesis
+ * @property int|null $guideMasterUserId
+ * @property int|null $consultantMasterUserId
+ * @property int|null $category_id
+ * @property string|null $dateOfRegister
+ * @property string|null $DefenseDate
+ * @property string|null $type
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Thesis whereCategoryId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Thesis whereConsultantMasterUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Thesis whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Thesis whereCreatorName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Thesis whereDateOfRegister($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Thesis whereDefenseDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Thesis whereGuideMasterUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Thesis whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Thesis whereTitleThesis($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Thesis whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Thesis whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class Thesis extends Model
@@ -21,7 +43,7 @@ class Thesis extends Model
     protected $table= 'thesis' ;
 
     protected $fillable = [
-        'creatorName',
+        'id','creatorName',
         'titleThesis',
         'guideMasterUserId',
         'consultantMasterUserId',

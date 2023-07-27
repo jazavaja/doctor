@@ -2,7 +2,7 @@
 
 namespace App\Imports;
 
-use App\Models\thesis;
+use App\Models\Thesis;
 use App\Providers\GeneralMethod;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\OnEachRow;
@@ -23,13 +23,7 @@ class ThesisImport implements ToModel
 
     public function model(array $row)
     {
-        $creatorName=$row[0];
-        $titleThesis=$row[1];
-        $category_id=$row[2];
-        $guideMasterUserId=$row[3];
-        $consultantMasterUserId=$row[4];
-        $dateOfRegister=$row[5];
-        $defenseDate=$row[6];
+        [$creatorName,$titleThesis,$category_id,$guideMasterUserId,$consultantMasterUserId,$dateOfRegister,$defenseDate] = $row;
 
         $resR = null;
         $resD = null;
@@ -51,7 +45,7 @@ class ThesisImport implements ToModel
         }
 
         try {
-            thesis::create([
+            Thesis::create([
                 'creatorName' => $creatorName,
                 'titleThesis' => $titleThesis,
                 'category_id' => $category_id,
@@ -68,14 +62,12 @@ class ThesisImport implements ToModel
         }
 
     }
+
     public function getRowCountSuccess(): int
     {
         return $this->rowCountSuccess;
     }
 
-    /**
-     * @return int
-     */
     public function getRowCountFail(): int
     {
         return $this->rowCountFail;

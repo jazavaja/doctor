@@ -2,21 +2,19 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Imports\ThesisImport;
-use App\Imports\UsersImport;
-use App\Models\Thesis;
+use App\Imports\CategoryImport;
+use App\Models\Category;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Maatwebsite\Excel\Facades\Excel;
 
-class CreateThesisGroup extends Component
+class CreateCategoryGroup extends Component
 {
-
     use WithFileUploads;
 
     public $file;
     public $data = [];
-
+    protected $category;
 
     public function upload()
     {
@@ -29,7 +27,7 @@ class CreateThesisGroup extends Component
         $ff=storage_path('app/' . $path);
 
 
-        $import = new ThesisImport();
+        $import = new CategoryImport();
         Excel::import($import, $ff);
 
 // Get the total number of rows created
@@ -38,11 +36,13 @@ class CreateThesisGroup extends Component
 
     }
 
-    public function deleteAllThesis(){
-        Thesis::query()->delete();
+    public function deleteCategory(){
+        Category::query()->delete();
     }
+
     public function render()
     {
-        return view('livewire.admin.create-thesis-group');
+        $this->category=Category::take(20)->get();
+        return view('livewire.admin.create-category-group')->with('category',$this->category);
     }
 }

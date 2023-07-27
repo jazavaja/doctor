@@ -2,16 +2,15 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Imports\ThesisImport;
-use App\Imports\UsersImport;
-use App\Models\Thesis;
+use App\Imports\PlanImport;
+use App\Imports\ProposalImport;
+use App\Models\Plan;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Maatwebsite\Excel\Facades\Excel;
 
-class CreateThesisGroup extends Component
+class CreatePlanGroup extends Component
 {
-
     use WithFileUploads;
 
     public $file;
@@ -29,7 +28,7 @@ class CreateThesisGroup extends Component
         $ff=storage_path('app/' . $path);
 
 
-        $import = new ThesisImport();
+        $import = new PlanImport();
         Excel::import($import, $ff);
 
 // Get the total number of rows created
@@ -38,11 +37,12 @@ class CreateThesisGroup extends Component
 
     }
 
-    public function deleteAllThesis(){
-        Thesis::query()->delete();
+    public function deleteAllPlan(){
+        Plan::query()->delete();
     }
+
     public function render()
     {
-        return view('livewire.admin.create-thesis-group');
+        return view('livewire.admin.create-plan-group');
     }
 }

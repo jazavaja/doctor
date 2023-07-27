@@ -3,7 +3,7 @@
     <div dir="rtl" class="container">
         <!-- Search Bar -->
         <div class="mb-3 input-group">
-            <input type="text" class="form-control text-center" wire:model.defer="search_input" placeholder="نام عنوان مقاله یا استاد راهنمای مقاله ، نویسنده مقاله را جستجو کنید">
+            <input type="text" class="form-control text-center" wire:model.defer="search_input" placeholder="نام عنوان پایان نامه یا استاد راهنمای پایان نامه و یا نویسنده پایان نامه را جستجو کنید">
             <button class="btn btn-primary" id="searchButton" wire:click="doSearch">جستجو</button>
         </div>
 
@@ -16,11 +16,11 @@
                         {{-- First Page Link --}}
                         @if ($thesis2->onFirstPage())
                             <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.first')">
-                                <span class="page-link" aria-hidden="true">Page 1</span>
+                                <span class="page-link" aria-hidden="true">صفحه اول</span>
                             </li>
                         @else
                             <li class="page-item">
-                                <button class="page-link" wire:click="gotoPage(1)" wire:loading.attr="disabled" aria-label="@lang('pagination.first')">Page 1</button>
+                                <button class="page-link" wire:click="gotoPage(1)" wire:loading.attr="disabled" aria-label="@lang('pagination.first')">صفحه اول</button>
                             </li>
                         @endif
 
@@ -49,11 +49,11 @@
                         {{-- Last Page Link --}}
                         @if ($thesis2->hasMorePages())
                             <li class="page-item">
-                                <button class="page-link" wire:click="gotoPage({{ $thesis2->lastPage() }})" wire:loading.attr="disabled" aria-label="@lang('pagination.last')">Last Page</button>
+                                <button class="page-link" wire:click="gotoPage({{ $thesis2->lastPage() }})" wire:loading.attr="disabled" aria-label="@lang('pagination.last')">صفحه آخر</button>
                             </li>
                         @else
                             <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.last')">
-                                <span class="page-link" aria-hidden="true">Last Page</span>
+                                <span class="page-link" aria-hidden="true">صفحه آخر</span>
                             </li>
                         @endif
                     </ul>
@@ -69,9 +69,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($thesis2 as $t)
+                @foreach($thesis2 as $index => $t)
+                    @php
+                        // Calculate the row number dynamically based on the current page and loop index
+                        $rowNumber = ($this->page - 1) * 40 + ($index + 1);
+                    @endphp
                     <tr>
-                        <td class="text-center">1</td>
+                        <td class="text-center">{{$rowNumber}}</td>
                         <td class="text-center">{{$t->creatorName}}</td>
                         <td class="text-center">{{$t->titleThesis}}</td>
                         <td class="text-center">

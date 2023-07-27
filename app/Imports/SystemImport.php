@@ -3,14 +3,14 @@
 namespace App\Imports;
 
 use App\Models\Position;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
+use App\Models\System;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
+use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\ToModel;
 
-class UsersImport implements ToModel
+class SystemImport implements ToModel
 {
-
     private $rowCountSuccess = 0;
     private $rowCountFail = 0;
 
@@ -19,22 +19,15 @@ class UsersImport implements ToModel
         [$id,$name] = $row;
 
         try {
-            User::create([
-                'id'     => $id,
-                'name'     => $name,
-                'email'    => $this->randEmail(),
-                'password' => Hash::make(123123123),
-                'role' => '1',
+            System::create([
+                'id'=>$id,
+                'name' => $name,
             ]);
             $this->rowCountSuccess++;
         } catch (\Exception $exception) {
-            Log::error("Error for Create Position because: " . $exception->getMessage());
+            Log::error("Error for Create System because: " . $exception->getMessage());
             $this->rowCountFail++;
         }
-    }
-
-    public function randEmail(){
-        return rand(0,100000)."OPA".rand(0,10000)."@example".rand(0,10000).".com";
     }
 
     public function getRowCountSuccess(): int
