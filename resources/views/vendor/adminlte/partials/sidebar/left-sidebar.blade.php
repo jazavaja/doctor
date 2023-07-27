@@ -138,12 +138,12 @@
                                 <p>اضافه کردن اکسل</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="/admin/proposal/list" class="nav-link" dideo-checked="true">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>لیست کلی پروپزال</p>
-                            </a>
-                        </li>
+{{--                        <li class="nav-item">--}}
+{{--                            <a href="/admin/proposal/list" class="nav-link" dideo-checked="true">--}}
+{{--                                <i class="far fa-circle nav-icon"></i>--}}
+{{--                                <p>لیست کلی پروپزال</p>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                     </ul>
                 </li>
                 <li class="nav-item">
