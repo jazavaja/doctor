@@ -10,6 +10,55 @@
             </button>
         </div>
 
+        @if ($plan->hasPages())
+            <nav>
+                <ul class="pagination justify-content-center">
+                    {{-- First Page Link --}}
+                    @if ($plan->onFirstPage())
+                        <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.first')">
+                            <span class="page-link" aria-hidden="true">صفحه اول</span>
+                        </li>
+                    @else
+                        <li class="page-item">
+                            <button class="page-link" wire:click="gotoPage(1)" wire:loading.attr="disabled" aria-label="@lang('pagination.first')">صفحه اول</button>
+                        </li>
+                    @endif
+
+                    {{-- Previous Page Link --}}
+                    @if ($plan->onFirstPage())
+                        <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
+                            <span class="page-link" aria-hidden="true">&lsaquo;</span>
+                        </li>
+                    @else
+                        <li class="page-item">
+                            <button class="page-link" wire:click="previousPage" wire:loading.attr="disabled" rel="prev" aria-label="@lang('pagination.previous')">&lsaquo;</button>
+                        </li>
+                    @endif
+
+                    {{-- Next Page Link --}}
+                    @if ($plan->hasMorePages())
+                        <li class="page-item">
+                            <button class="page-link" wire:click="nextPage" wire:loading.attr="disabled" rel="next" aria-label="@lang('pagination.next')">&rsaquo;</button>
+                        </li>
+                    @else
+                        <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
+                            <span class="page-link" aria-hidden="true">&rsaquo;</span>
+                        </li>
+                    @endif
+
+                    {{-- Last Page Link --}}
+                    @if ($plan->hasMorePages())
+                        <li class="page-item">
+                            <button class="page-link" wire:click="gotoPage({{ $plan->lastPage() }})" wire:loading.attr="disabled" aria-label="@lang('pagination.last')">صفحه آخر</button>
+                        </li>
+                    @else
+                        <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.last')">
+                            <span class="page-link" aria-hidden="true">صفحه آخر</span>
+                        </li>
+                    @endif
+                </ul>
+            </nav>
+    @endif
         <!-- Table -->
         <table class="table table-bordered">
             <thead>
@@ -30,7 +79,7 @@
             @foreach($plan as $index =>$t)
                 @php
                     // Calculate the row number dynamically based on the current page and loop index
-                    $rowNumber = ($this->page - 1) * 20 + ($index + 1);
+                    $rowNumber = ($this->page - 1) * 30 + ($index + 1);
                 @endphp
                 <tr>
                     <td>{{$rowNumber}}</td>

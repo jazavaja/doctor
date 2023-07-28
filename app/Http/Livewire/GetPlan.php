@@ -27,7 +27,7 @@ class GetPlan extends Component
     }
     public function render()
     {
-        $this->plan=Plan::paginate(20);
+        $this->plan=Plan::paginate(30);
         return view('livewire.get-plan')->with('plan',$this->plan);
     }
 }
