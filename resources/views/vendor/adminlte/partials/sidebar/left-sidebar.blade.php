@@ -33,61 +33,7 @@
                     </a>
 
                 </li>
-                <li class="nav-item">
 
-                    <a class="nav-link" href="/admin/category/create_group" dideo-checked="true">
-
-                        <i class="fas fa-fw fa-user "></i>
-
-                        <p>
-                            دپارتمان
-
-                        </p>
-
-                    </a>
-
-                </li>
-                <li class="nav-item">
-
-                    <a class="nav-link" href="/admin/position/create_group" dideo-checked="true">
-
-                        <i class="fas fa-fw fa-user "></i>
-
-                        <p>
-                            جایگاه
-
-                        </p>
-
-                    </a>
-
-                </li>
-                <li class="nav-item">
-
-                    <a class="nav-link" href="/admin/masters/create_group" dideo-checked="true">
-
-                        <i class="fas fa-fw fa-user "></i>
-
-                        <p>
-                            اساتید
-                        </p>
-
-                    </a>
-
-                </li>
-                <li class="nav-item">
-
-                    <a class="nav-link" href="/admin/system/create_group" dideo-checked="true">
-
-                        <i class="fas fa-fw fa-user "></i>
-
-                        <p>
-                            سیستم
-
-                        </p>
-
-                    </a>
-
-                </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link" dideo-checked="true">
                         <i class="nav-icon fas  fa-circle nav-icon"></i>
@@ -103,6 +49,33 @@
 {{--                                <p>اضافه کردن تکی</p>--}}
 {{--                            </a>--}}
 {{--                        </li>--}}
+                        <li class="nav-item">
+
+                            <a class="nav-link" href="/admin/category/create_group" dideo-checked="true">
+
+                                <i class="fas fa-fw fa-user "></i>
+
+                                <p>
+                                    دپارتمان
+
+                                </p>
+
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+
+                            <a class="nav-link" href="/admin/masters/create_group" dideo-checked="true">
+
+                                <i class="fas fa-fw fa-user "></i>
+
+                                <p>
+                                    اساتید
+                                </p>
+
+                            </a>
+
+                        </li>
                         <li class="nav-item">
                             <a href="/admin/thesis/create_group" class="nav-link" dideo-checked="true">
                                 <i class="far fa-circle nav-icon"></i>
@@ -132,6 +105,34 @@
 {{--                                <p>اضافه کردن تکی</p>--}}
 {{--                            </a>--}}
 {{--                        </li>--}}
+                        <li class="nav-item">
+
+                            <a class="nav-link" href="/admin/position/create_group" dideo-checked="true">
+
+                                <i class="fas fa-fw fa-user "></i>
+
+                                <p>
+                                    جایگاه
+
+                                </p>
+
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+
+                            <a class="nav-link" href="/admin/system/create_group" dideo-checked="true">
+
+                                <i class="fas fa-fw fa-user "></i>
+
+                                <p>
+                                    سیستم
+
+                                </p>
+
+                            </a>
+
+                        </li>
                         <li class="nav-item">
                             <a href="/admin/proposal/create_group" class="nav-link" dideo-checked="true">
                                 <i class="far fa-circle nav-icon"></i>
