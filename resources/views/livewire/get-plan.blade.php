@@ -82,13 +82,33 @@
                     $rowNumber = ($this->page - 1) * 30 + ($index + 1);
                 @endphp
                 <tr>
+
+                    @php
+                        $date_start = $t->date_start;
+                        $date_end = $t->date_end;
+                        $date_contract = $t->date_contract;
+
+                        // Convert the dateRegister to Jalali (Shamsi) format if it is valid, otherwise set to 'InvalidDate'
+                        $date_start = ($date_start && preg_match('/^\d{4}-\d{2}-\d{2}$/', $date_start))
+                            ? \Morilog\Jalali\Jalalian::fromCarbon(\Carbon\Carbon::parse($date_start))->format('Y-m-d')
+                            : 'ثبت نشده';
+
+                        $date_contract = ($date_contract && preg_match('/^\d{4}-\d{2}-\d{2}$/', $date_contract))
+                            ? \Morilog\Jalali\Jalalian::fromCarbon(\Carbon\Carbon::parse($date_contract))->format('Y-m-d')
+                            : 'ثبت نشده';
+                        // Convert the defenseDate to Jalali (Shamsi) format if it is valid, otherwise set to 'InvalidDate'
+                        $date_end = ($date_end && preg_match('/^\d{4}-\d{2}-\d{2}$/', $date_end))
+                            ? \Morilog\Jalali\Jalalian::fromCarbon(\Carbon\Carbon::parse($date_end))->format('Y-m-d')
+                            : 'ثبت نشده';
+                    @endphp
                     <td>{{$rowNumber}}</td>
                     <td>{{$t->title_plan}}</td>
                     <td>{{$t->name_project_manager}}</td>
                     <td>{{$t->time_project}}</td>
-                    <td>{{$t->date_start}}</td>
-                    <td>{{$t->date_end}}</td>
-                    <td>{{$t->date_contract}}</td>
+                    <td>
+                        {{$date_start}}</td>
+                    <td>{{$date_end}}</td>
+                    <td>{{$date_contract}}</td>
                     <td>{{$t->executive_obligations_summary}}</td>
                     <td>{{$t->names_colleagues}}</td>
                     <td>{{$t->description}}</td>
