@@ -8,13 +8,16 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @livewireStyles
 </head>
-<body style="background-color: #dafffa">
+<body style="
+background-color: #dafffa;
+background-image: url({{asset('image/dent.jpg')}});
+background-size: 100% auto;" >
 
 <!-- Header -->
 <header class="bg-primary text-white py-3">
     <div class="container">
         <div class="d-flex align-items-center justify-content-center">
-            <img src="{{ asset('image/download.png') }}" alt="Logo" class="img-fluid" style="max-height: 50px;">
+            <img src="{{ asset('image/logo_uni.jpg') }}" alt="Logo" class="img-fluid" style="max-height: 50px;">
         </div>
         <h4 class="text-center my-3">
             سامانه دانشگاه ازاد دندان پزشکی تهران
@@ -23,14 +26,13 @@
 </header>
 
 
-
 <!-- Your page content -->
 <div class="container">
     @yield('content')
 </div>
 
 <!-- Footer -->
-<footer class="bg-light text-center py-3  bg-success">
+<footer class="bg-light text-center py-3 ">
     <div class="container">
         <p>
             تمامی حقوق مادی و معنوی این سامانه متعلق  به دانشگاه ازاد دندان پزشکی تهران می باشد
