@@ -17,12 +17,14 @@ class ProcessThesisData implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    public $timeout = 600;
     protected $path;
 
     public function __construct($path)
     {
         $this->path = $path;
     }
+
 
     public function handle()
     {
