@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Imports\CategoryImport;
 use App\Imports\UsersImport;
+use App\Jobs\ProcessMasterData;
 use App\Models\Category;
 use App\Models\User;
 use Livewire\Component;
@@ -26,17 +27,32 @@ class CreateMasterGroup extends Component
 
         $path = $this->file->store('public');
 
-        $ff=storage_path('app/' . $path);
+        ProcessMasterData::dispatch($path);
 
-
-        $import = new UsersImport();
-        Excel::import($import, $ff);
-
-// Get the total number of rows created
-        $rowCount = $import->getRowCountSuccess();
-        $fail = $import->getRowCountFail();
-
+        session()->flash('message', 'File uploaded and processing has been queued.');
     }
+
+
+//    public function upload()
+//    {
+//        $this->validate([
+//            'file' => 'required|mimes:xls,xlsx'
+//        ]);
+//
+//        $path = $this->file->store('public');
+//
+//        $ff=storage_path('app/' . $path);
+//
+//
+//        $import = new UsersImport();
+//        Excel::import($import, $ff);
+//
+//        // Get the total number of rows created
+//
+//        $rowCount = $import->getRowCountSuccess();
+//        $fail = $import->getRowCountFail();
+//
+//    }
 
     public function deleteMasters(){
         User::where('role','=',1)->delete();
