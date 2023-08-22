@@ -39,7 +39,7 @@ class CreateMasterGroup extends Component
     }
 
     public function deleteMasters(){
-        User::where('role','=',1)-> query()->delete();
+        User::where('role','=',1)->delete();
     }
 
     public function render()
