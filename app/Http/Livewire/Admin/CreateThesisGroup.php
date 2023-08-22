@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Imports\ThesisImport;
 use App\Imports\UsersImport;
+use App\Jobs\ProcessThesisData;
 use App\Models\Thesis;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -26,16 +27,9 @@ class CreateThesisGroup extends Component
 
         $path = $this->file->store('public');
 
-        $ff=storage_path('app/' . $path);
+        ProcessThesisData::dispatch($path);
 
-
-        $import = new ThesisImport();
-        Excel::import($import, $ff);
-
-// Get the total number of rows created
-        $rowCount = $import->getRowCountSuccess();
-        $fail = $import->getRowCountFail();
-
+        session()->flash('message', 'File uploaded and processing has been queued.');
     }
 
     public function deleteAllThesis(){
