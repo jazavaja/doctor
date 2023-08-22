@@ -2,6 +2,7 @@
 
 namespace App\Imports;
 
+use App\Jobs\CreateThesisJob;
 use App\Models\Thesis;
 use App\Providers\GeneralMethod;
 use Illuminate\Support\Collection;
@@ -25,41 +26,8 @@ class ThesisImport implements ToModel
     {
         [$creatorName,$titleThesis,$category_id,$guideMasterUserId,$consultantMasterUserId,$dateOfRegister,$defenseDate] = $row;
 
-        $resR = null;
-        $resD = null;
-
-        if ($dateOfRegister !== null) {
-            try {
-                $resR = Jalalian::fromFormat('Y/m/d', GeneralMethod::forNumbers($dateOfRegister))->toCarbon();
-            } catch (\Exception $exception) {
-
-            }
-        }
-
-        if ($defenseDate !== null) {
-            try {
-                $resD = Jalalian::fromFormat('Y/m/d', GeneralMethod::forNumbers($defenseDate))->toCarbon();
-            } catch (\Exception $exception) {
-
-            }
-        }
-
-        try {
-            Thesis::create([
-                'creatorName' => $creatorName,
-                'titleThesis' => $titleThesis,
-                'category_id' => $category_id,
-                'guideMasterUserId' => $guideMasterUserId,
-                'consultantMasterUserId' => $consultantMasterUserId,
-                'dateOfRegister' => $resR,
-                'DefenseDate' => $resD,
-            ]);
-            $this->rowCountSuccess++;
-
-        }catch (\Exception $exception){
-            Log::error("Error for Create thesis because :-- ".$exception->getMessage());
-            $this->rowCountFail++;
-        }
+        $rowData = [$creatorName, $titleThesis, $category_id, $guideMasterUserId, $consultantMasterUserId, $dateOfRegister, $defenseDate];
+        CreateThesisJob::dispatch($rowData);
 
     }
 
