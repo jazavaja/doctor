@@ -27,32 +27,18 @@ class CreateMasterGroup extends Component
 
         $path = $this->file->store('public');
 
-        ProcessMasterData::dispatch($path);
+        $ff=storage_path('app/' . $path);
 
-        session()->flash('message', 'File uploaded and processing has been queued.');
+
+        $import = new UsersImport();
+        Excel::import($import, $ff);
+
+        // Get the total number of rows created
+
+        $rowCount = $import->getRowCountSuccess();
+        $fail = $import->getRowCountFail();
+
     }
-
-
-//    public function upload()
-//    {
-//        $this->validate([
-//            'file' => 'required|mimes:xls,xlsx'
-//        ]);
-//
-//        $path = $this->file->store('public');
-//
-//        $ff=storage_path('app/' . $path);
-//
-//
-//        $import = new UsersImport();
-//        Excel::import($import, $ff);
-//
-//        // Get the total number of rows created
-//
-//        $rowCount = $import->getRowCountSuccess();
-//        $fail = $import->getRowCountFail();
-//
-//    }
 
     public function deleteMasters(){
         User::where('role','=',1)->delete();

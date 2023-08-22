@@ -27,9 +27,13 @@ class CreateThesisGroup extends Component
 
         $path = $this->file->store('public');
 
-        ProcessThesisData::dispatch($path);
+        $ff=storage_path('app/' . $path);
 
-        session()->flash('message', 'File uploaded and processing has been queued.');
+
+        $import = new ThesisImport();
+        Excel::import($import, $ff);
+
+
     }
 
     public function deleteAllThesis(){

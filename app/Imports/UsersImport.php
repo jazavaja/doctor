@@ -2,6 +2,7 @@
 
 namespace App\Imports;
 
+use App\Jobs\CreateUserJob;
 use App\Models\Position;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -18,24 +19,11 @@ class UsersImport implements ToModel
     {
         [$id,$name] = $row;
 
-        try {
-            User::create([
-                'id'     => $id,
-                'name'     => $name,
-                'email'    => $this->randEmail(),
-                'password' => Hash::make(123123123),
-                'role' => '1',
-            ]);
-            $this->rowCountSuccess++;
-        } catch (\Exception $exception) {
-            Log::error("Error for Create Position because: " . $exception->getMessage());
-            $this->rowCountFail++;
-        }
+        $userData = [$id, $name]; // Replace with the actual user data
+        CreateUserJob::dispatch($userData);
     }
 
-    public function randEmail(){
-        return rand(0,100000)."OPA".rand(0,10000)."@example".rand(0,10000).".com";
-    }
+
 
     public function getRowCountSuccess(): int
     {
