@@ -3,8 +3,6 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Imports\ThesisImport;
-use App\Imports\UsersImport;
-use App\Jobs\ProcessThesisData;
 use App\Models\Thesis;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -29,9 +27,10 @@ class CreateThesisGroup extends Component
 
         $ff=storage_path('app/' . $path);
 
-
+        \Log::info("Upload start thesis");
         $import = new ThesisImport();
         Excel::import($import, $ff);
+        \Log::info("Upload End thesis");
 
 
     }
