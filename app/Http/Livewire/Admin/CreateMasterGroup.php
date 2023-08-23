@@ -4,8 +4,6 @@ namespace App\Http\Livewire\Admin;
 
 use App\Imports\CategoryImport;
 use App\Imports\UsersImport;
-use App\Jobs\ProcessMasterData;
-use App\Models\Category;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -30,8 +28,11 @@ class CreateMasterGroup extends Component
         $ff=storage_path('app/' . $path);
 
 
+        \Log::info("Updated Masters start");
         $import = new UsersImport();
         Excel::import($import, $ff);
+        \Log::info("Updated Masters end");
+
 
         // Get the total number of rows created
 
