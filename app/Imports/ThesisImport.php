@@ -3,14 +3,7 @@
 namespace App\Imports;
 
 use App\Jobs\CreateThesisJob;
-use App\Models\Thesis;
-use App\Providers\GeneralMethod;
-use Illuminate\Support\Collection;
-use Maatwebsite\Excel\Concerns\OnEachRow;
 use Maatwebsite\Excel\Concerns\ToModel;
-use Maatwebsite\Excel\Concerns\WithHeadingRow;
-use Morilog\Jalali\Jalalian;
-use PhpOffice\PhpSpreadsheet\Shared\Date;
 use Illuminate\Support\Facades\Log;
 
 class ThesisImport implements ToModel
@@ -24,6 +17,7 @@ class ThesisImport implements ToModel
 
     public function model(array $row)
     {
+        Log::info("ThesisImport log in toModel");
         [$creatorName,$titleThesis,$category_id,$guideMasterUserId,$consultantMasterUserId,$dateOfRegister,$defenseDate] = $row;
 
         $rowData = [$creatorName, $titleThesis, $category_id, $guideMasterUserId, $consultantMasterUserId, $dateOfRegister, $defenseDate];

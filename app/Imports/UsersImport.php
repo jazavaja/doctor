@@ -3,10 +3,6 @@
 namespace App\Imports;
 
 use App\Jobs\CreateUserJob;
-use App\Models\Position;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Log;
 use Maatwebsite\Excel\Concerns\ToModel;
 
 class UsersImport implements ToModel
