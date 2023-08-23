@@ -31,10 +31,6 @@ class CreatePlanGroup extends Component
         $import = new PlanImport();
         Excel::import($import, $ff);
 
-// Get the total number of rows created
-        $rowCount = $import->getRowCountSuccess();
-        $fail = $import->getRowCountFail();
-
     }
 
     public function deleteAllPlan(){

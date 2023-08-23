@@ -6,8 +6,8 @@
         </div>
     @endif
     <hr>
-    <form wire:submit="upload">
-        <input type="file" wire:model.defer="file">
+    <form wire:submit.prevent="upload">
+        <input type="file" wire:model="file">
         @error('file')
         <span class="text-red-500">{{ $message }}</span>
         @enderror
