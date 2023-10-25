@@ -16,6 +16,7 @@ class CreateMasterGroup extends Component
     public $file;
     public $data = [];
     protected $masters;
+    public $isUploading ;
 
     public function upload()
     {
