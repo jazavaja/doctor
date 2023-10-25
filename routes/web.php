@@ -28,6 +28,7 @@ Route::get('/plan', function () {
     return view('plan');
 });
 
+
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
