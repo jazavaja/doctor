@@ -35,6 +35,7 @@ class CreateMasterGroup extends Component
         \Log::info("Updated Masters end");
 
 
+
         // Get the total number of rows created
 
         $rowCount = $import->getRowCountSuccess();
