@@ -88,8 +88,15 @@
                                 </p>
                                 <p>
                                     <span class="text-bold">استاد راهنما :</span>
-                                    <span>{{ $t->guideMasterUser->name ?? 'No guide' }}</span>
+                                    <span>{{ $t->guideMasterUser->name ?? 'استاد راهنما ندارد' }}</span>
                                 </p>
+                                @if($t->consultantMasterUser)
+                                    <p>
+                                        <span class="text-bold">استاد مشاور :</span>
+                                        <span>{{ $t->consultantMasterUser->name ?? 'استاد مشاور ندارد' }}</span>
+                                    </p>
+                                @endif
+
                                 @php
                                     $dateRegister = $t->dateOfRegister;
                                     $defenseDate = $t->DefenseDate;
@@ -105,14 +112,9 @@
                                         : 'ثبت نشده';
                                 @endphp
                                 <p>
-                                    <span class="text-bold">تاریخ ثبت   </span>
-                                    <br>
-                                    {{ $jalaliDate ?? '' }}
-                                </p>
-                                <p>
                                     <span class="text-bold">تاریخ دفاع :</span>
                                     <br>
-                                    {{ $jalaliDate2 ?? 'ثبت نشده' }}
+                                    {{ $jalaliDate ?? 'ثبت نشده' }}
                                 </p>
                             </details>
                         </td>

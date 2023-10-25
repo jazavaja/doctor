@@ -16,6 +16,7 @@ class CreateMasterGroup extends Component
     public $file;
     public $data = [];
     protected $masters;
+    public $isUploading ;
 
     public function upload()
     {
@@ -28,10 +29,12 @@ class CreateMasterGroup extends Component
         $ff=storage_path('app/' . $path);
 
 
+
         \Log::info("Updated Masters start");
         $import = new UsersImport();
         Excel::import($import, $ff);
         \Log::info("Updated Masters end");
+
 
 
         // Get the total number of rows created

@@ -18,6 +18,9 @@
     در اینجا فایل اکسل را اپلود کنید
     <form wire:submit.prevent="upload">
         <input type="file" wire:model="file">
+        <div wire:loading wire:target="file">
+            در حال آپلود لطفا صبر کنید.....
+        </div>
         @error('file')
         <span class="text-red-500">{{ $message }}</span>
         @enderror
