@@ -10,6 +10,6 @@ deploy:
   script:
     - npm install -g @chabokan.net/cli
     - export CHABOK_API_URL=https://apihub2.chabokan.net/fa/api/v1/
-    - chabok login -t $CHABOKAN_TOKEN
+    - chabok login -t 81bfb7e3f3b80f55355d0102a4039ff1ee807ecc
     - chabok deploy -s doctordavari
 
