@@ -6,7 +6,7 @@ stages:
 deploy:
   stage: update-service
   only:
-    - main
+    - develop
   script:
     - npm install -g @chabokan.net/cli
     - export CHABOK_API_URL=https://apihub2.chabokan.net/fa/api/v1/
